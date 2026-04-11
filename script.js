@@ -11,19 +11,23 @@ function searchFunction() {
 
 // 📥 Upload PDF (local preview only)
 function uploadPDF() {
-    let fileInput = document.getElementById("fileInput");
-    let file = fileInput.files[0];
+    let file = document.getElementById("fileInput").files[0];
 
     if (!file) {
-        alert("Please select a PDF file");
+        alert("Select a file first");
         return;
     }
 
-    let url = URL.createObjectURL(file);
+    let storageRef = storage.ref("pdfs/" + file.name);
 
-    let div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `<a href="${url}" target="_blank">${file.name}</a>`;
+    storageRef.put(file).then(() => {
+        alert("Uploaded Successfully!");
 
-    document.getElementById("subjectList").appendChild(div);
+        storageRef.getDownloadURL().then((url) => {
+            let div = document.createElement("div");
+            div.className = "card";
+            div.innerHTML = `<a href="${url}" target="_blank">${file.name}</a>`;
+            document.getElementById("subjectList").appendChild(div);
+        });
+    });
 }

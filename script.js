@@ -1,22 +1,17 @@
-// =========================
-// SEARCH SUBJECTS
-// =========================
-
 function searchFunction() {
 
-    const input =
-        document.getElementById("search")
+    const input = document
+        .getElementById("search")
         .value
         .toLowerCase()
         .trim();
 
-    const cards =
-        document.querySelectorAll(".subjects .card");
+    const cards = document.querySelectorAll(".semester-card");
 
     const noResults =
         document.getElementById("noResults");
 
-    let visibleCards = 0;
+    let found = 0;
 
     cards.forEach(card => {
 
@@ -27,7 +22,7 @@ function searchFunction() {
 
             card.style.display = "flex";
 
-            visibleCards++;
+            found++;
 
         } else {
 
@@ -37,44 +32,9 @@ function searchFunction() {
 
     });
 
-    noResults.style.display =
-        visibleCards === 0 ? "block" : "none";
-}
-
-
-// =========================
-// UPLOAD PDF
-// =========================
-
-function uploadPDF() {
-
-    const file =
-        document.getElementById("fileInput")
-        .files[0];
-
-    if (!file) {
-
-        alert("Please select a PDF first.");
-
-        return;
+    if (found === 0 && input !== "") {
+        noResults.style.display = "block";
+    } else {
+        noResults.style.display = "none";
     }
-
-    if (file.type !== "application/pdf") {
-
-        alert("Only PDF files are allowed.");
-
-        return;
-    }
-
-    /*
-       Firebase upload code can remain here
-       after your Firebase configuration
-       is properly connected.
-    */
-
-    alert(
-        "PDF selected successfully.\n\n" +
-        "Firebase upload will be enabled once " +
-        "your Firebase configuration is connected."
-    );
 }

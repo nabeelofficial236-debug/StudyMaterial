@@ -1,54 +1,400 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Study Material</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="StudyMaterial - Notes, practicals and study resources for Computer Engineering students.">
+
+    <title>StudyMaterial | Study Smarter</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"></script>
 
-<script>
-const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_ID",
-  storageBucket: "YOUR_BUCKET",
-};
-
-firebase.initializeApp(firebaseConfig);
-const storage = firebase.storage();
-</script>
 <body>
 
-<header>
-    <h1>📚 Study Material Hub</h1>
-    <input type="text" id="search" placeholder="Search subjects..." onkeyup="searchFunction()">
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <span>StudyMaterial</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#practicals">Practicals</a>
+            <a href="#upload">Upload</a>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🎓 Computer Engineering Study Portal
+        </div>
+
+        <h1>
+            Study smarter.
+            <span>Prepare better.</span>
+        </h1>
+
+        <p>
+            Notes, practicals and study resources —
+            everything you need in one place.
+        </p>
+
+        <div class="search-box">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search subjects..."
+                onkeyup="searchFunction()"
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
 </header>
 
-<section class="semester">
-    <h2>CSE Semester 4</h2>
 
-    <div class="subjects" id="subjectList"><div class="card">📘 <a href="subjects/daa.html">DAA</a></div>
-<div class="card">💻 <a href="subjects/cao.html">CAO</a></div>
-<div class="card">📊 <a href="subjects/ps.html">P&S</a></div>
-<div class="card">⚖️ <a href="subjects/law.html">Law</a></div>
-<div class="card">📡 <a href="subjects/signals.html">System & Signals</a></div>
-<div class="card">📝 <a href="subjects/marathi.html">Marathi</a></div>
-<div class="card">👤 <a href="subjects/ambedkar.html">Dr. B.R. Ambedkar</a></div>
-<div class="card">📜 <a href="subjects/constitution.html">Constitution</a></div>
+<!-- ================= MAIN ================= -->
 
-<div class="card">🧪 <a href="subjects/daa_practical.html">DAA Practical</a></div>
-<div class="card">🐍 <a href="subjects/python_practical.html">Python Practical</a></div>
-<div class="card">🌐 <a href="subjects/fsd_practical.html">FSD Practical</a></div>
+<main class="main-container">
 
-    
 
-    <h3>➕ Add Your PDF</h3>
-    <input type="file" id="fileInput" accept="application/pdf">
-    <button onclick="uploadPDF()">Upload</button>
+    <!-- SUBJECTS -->
 
-</section>
+    <section class="section" id="subjects">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">SEMESTER 04</span>
+
+                <h2>
+                    Computer Engineering
+                </h2>
+
+                <p>
+                    Select a subject to start studying.
+                </p>
+            </div>
+
+            <span class="subject-count">
+                8 Subjects
+            </span>
+
+        </div>
+
+
+        <div class="subjects" id="subjectList">
+
+
+            <a class="card" href="subjects/daa.html">
+
+                <div class="card-icon blue">
+                    📘
+                </div>
+
+                <div class="card-content">
+                    <h3>Design & Analysis of Algorithms</h3>
+                    <p>DAA</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+
+            <a class="card" href="subjects/cao.html">
+
+                <div class="card-icon purple">
+                    💻
+                </div>
+
+                <div class="card-content">
+                    <h3>Computer Architecture</h3>
+                    <p>CAO</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+
+            <a class="card" href="subjects/ps.html">
+
+                <div class="card-icon green">
+                    📊
+                </div>
+
+                <div class="card-content">
+                    <h3>Probability & Statistics</h3>
+                    <p>P&S</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+
+            <a class="card" href="subjects/law.html">
+
+                <div class="card-icon orange">
+                    ⚖️
+                </div>
+
+                <div class="card-content">
+                    <h3>Law</h3>
+                    <p>New Labour Codes</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+
+            <a class="card" href="subjects/signals.html">
+
+                <div class="card-icon pink">
+                    📡
+                </div>
+
+                <div class="card-content">
+                    <h3>Signals & Systems</h3>
+                    <p>System & Signals</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+
+            <a class="card" href="subjects/marathi.html">
+
+                <div class="card-icon red">
+                    📝
+                </div>
+
+                <div class="card-content">
+                    <h3>Marathi</h3>
+                    <p>Language</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+
+            <a class="card" href="subjects/ambedkar.html">
+
+                <div class="card-icon gold">
+                    👤
+                </div>
+
+                <div class="card-content">
+                    <h3>Dr. B. R. Ambedkar</h3>
+                    <p>Study Material</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+
+            <a class="card" href="subjects/constitution.html">
+
+                <div class="card-icon teal">
+                    📜
+                </div>
+
+                <div class="card-content">
+                    <h3>Constitution</h3>
+                    <p>Indian Constitution</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </a>
+
+        </div>
+
+        <p id="noResults" class="no-results">
+            No subjects found.
+        </p>
+
+    </section>
+
+
+
+    <!-- PRACTICALS -->
+
+    <section class="section practical-section" id="practicals">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">PRACTICALS</span>
+
+                <h2>Programming & Lab Work</h2>
+
+                <p>
+                    Practical programs and laboratory resources.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="practical-grid">
+
+
+            <a class="practical-card" href="subjects/daa_practical.html">
+
+                <span>🧪</span>
+
+                <div>
+                    <h3>DAA Practical</h3>
+                    <p>Algorithms & programs</p>
+                </div>
+
+                <b>→</b>
+
+            </a>
+
+
+            <a class="practical-card" href="subjects/python_practical.html">
+
+                <span>🐍</span>
+
+                <div>
+                    <h3>Python Practical</h3>
+                    <p>Python programs & exercises</p>
+                </div>
+
+                <b>→</b>
+
+            </a>
+
+
+            <a class="practical-card" href="subjects/fsd_practical.html">
+
+                <span>🌐</span>
+
+                <div>
+                    <h3>FSD Practical</h3>
+                    <p>Full Stack Development</p>
+                </div>
+
+                <b>→</b>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- UPLOAD -->
+
+    <section class="upload-section" id="upload">
+
+        <div class="upload-content">
+
+            <div class="upload-icon">
+                📄
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    COMMUNITY
+                </span>
+
+                <h2>
+                    Have useful study material?
+                </h2>
+
+                <p>
+                    Upload a PDF and make it easier for others
+                    to access useful resources.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="upload-controls">
+
+            <input
+                type="file"
+                id="fileInput"
+                accept="application/pdf"
+            >
+
+            <button onclick="uploadPDF()">
+                Upload PDF
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <strong>📚 StudyMaterial</strong>
+
+            <p>
+                A helping hand for students 🧡
+            </p>
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#home">Home</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#practicals">Practicals</a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 StudyMaterial. Made for students.
+    </div>
+
+</footer>
+
 
 <script src="script.js"></script>
 

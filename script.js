@@ -1,33 +1,80 @@
-// 🔍 Search Function
-function searchFunction() {
-    let input = document.getElementById("search").value.toLowerCase();
-    let cards = document.getElementsByClassName("card");
+// =========================
+// SEARCH SUBJECTS
+// =========================
 
-    for (let i = 0; i < cards.length; i++) {
-        let text = cards[i].innerText.toLowerCase();
-        cards[i].style.display = text.includes(input) ? "block" : "none";
-    }
+function searchFunction() {
+
+    const input =
+        document.getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(".subjects .card");
+
+    const noResults =
+        document.getElementById("noResults");
+
+    let visibleCards = 0;
+
+    cards.forEach(card => {
+
+        const text =
+            card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+
+            card.style.display = "flex";
+
+            visibleCards++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    noResults.style.display =
+        visibleCards === 0 ? "block" : "none";
 }
 
-// 📥 Upload PDF (local preview only)
+
+// =========================
+// UPLOAD PDF
+// =========================
+
 function uploadPDF() {
-    let file = document.getElementById("fileInput").files[0];
+
+    const file =
+        document.getElementById("fileInput")
+        .files[0];
 
     if (!file) {
-        alert("Select a file first");
+
+        alert("Please select a PDF first.");
+
         return;
     }
 
-    let storageRef = storage.ref("pdfs/" + file.name);
+    if (file.type !== "application/pdf") {
 
-    storageRef.put(file).then(() => {
-        alert("Uploaded Successfully!");
+        alert("Only PDF files are allowed.");
 
-        storageRef.getDownloadURL().then((url) => {
-            let div = document.createElement("div");
-            div.className = "card";
-            div.innerHTML = `<a href="${url}" target="_blank">${file.name}</a>`;
-            document.getElementById("subjectList").appendChild(div);
-        });
-    });
+        return;
+    }
+
+    /*
+       Firebase upload code can remain here
+       after your Firebase configuration
+       is properly connected.
+    */
+
+    alert(
+        "PDF selected successfully.\n\n" +
+        "Firebase upload will be enabled once " +
+        "your Firebase configuration is connected."
+    );
 }

@@ -3,48 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="StudyMaterial - Notes, practicals and study resources for Computer Engineering students.">
-
-    <title>StudyMaterial | Study Smarter</title>
-
+    <meta name="description" content="StudyMaterial - Computer Engineering study resources">
+    <title>StudyMaterial | Computer Engineering</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
 <nav class="navbar">
-
     <div class="nav-container">
 
         <a href="index.html" class="logo">
-            <span class="logo-icon">📚</span>
-            <span>StudyMaterial</span>
+            <span>📚</span>
+            StudyMaterial
         </a>
 
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#subjects">Subjects</a>
-            <a href="#practicals">Practicals</a>
-            <a href="#upload">Upload</a>
+            <a href="#semesters">Semesters</a>
+            <a href="#about">About</a>
         </div>
 
     </div>
-
 </nav>
 
-
-<!-- ================= HERO ================= -->
 
 <header class="hero" id="home">
 
     <div class="hero-content">
 
         <div class="badge">
-            🎓 Computer Engineering Study Portal
+            🎓 B.Tech Computer Engineering
         </div>
 
         <h1>
@@ -53,22 +42,19 @@
         </h1>
 
         <p>
-            Notes, practicals and study resources —
-            everything you need in one place.
+            Notes, practicals, previous-year questions and
+            study resources for Computer Engineering students.
         </p>
 
         <div class="search-box">
-
-            <span class="search-icon">🔍</span>
+            <span>🔍</span>
 
             <input
                 type="text"
                 id="search"
-                placeholder="Search subjects..."
+                placeholder="Search semester or subject..."
                 onkeyup="searchFunction()"
-                autocomplete="off"
             >
-
         </div>
 
     </div>
@@ -76,287 +62,271 @@
 </header>
 
 
-<!-- ================= MAIN ================= -->
+<main class="container">
 
-<main class="main-container">
-
-
-    <!-- SUBJECTS -->
-
-    <section class="section" id="subjects">
+    <section class="section" id="semesters">
 
         <div class="section-heading">
 
             <div>
-                <span class="section-label">SEMESTER 04</span>
+                <span class="section-label">
+                    COMPUTER ENGINEERING
+                </span>
 
                 <h2>
-                    Computer Engineering
+                    Explore Your Semester
                 </h2>
 
                 <p>
-                    Select a subject to start studying.
+                    Select your semester to find subjects and study material.
                 </p>
             </div>
 
-            <span class="subject-count">
-                8 Subjects
-            </span>
+            <div class="semester-count">
+                8 Semesters
+            </div>
 
         </div>
 
 
-        <div class="subjects" id="subjectList">
+        <div class="semester-grid" id="semesterList">
 
 
-            <a class="card" href="subjects/daa.html">
+            <!-- SEMESTER 1 -->
 
-                <div class="card-icon blue">
+            <a href="semesters/semester1.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    01
+                </div>
+
+                <div class="semester-icon">
                     📘
                 </div>
 
-                <div class="card-content">
-                    <h3>Design & Analysis of Algorithms</h3>
-                    <p>DAA</p>
+                <div class="semester-info">
+                    <span>FIRST YEAR</span>
+                    <h3>Semester 1</h3>
+                    <p>Foundation & Engineering</p>
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
 
-            <a class="card" href="subjects/cao.html">
+            <!-- SEMESTER 2 -->
 
-                <div class="card-icon purple">
-                    💻
+            <a href="semesters/semester2.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    02
                 </div>
 
-                <div class="card-content">
-                    <h3>Computer Architecture</h3>
-                    <p>CAO</p>
+                <div class="semester-icon">
+                    📗
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-info">
+                    <span>FIRST YEAR</span>
+                    <h3>Semester 2</h3>
+                    <p>Engineering Fundamentals</p>
+                </div>
+
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
 
-            <a class="card" href="subjects/ps.html">
+            <!-- SEMESTER 3 -->
 
-                <div class="card-icon green">
-                    📊
+            <a href="semesters/semester3.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    03
                 </div>
 
-                <div class="card-content">
-                    <h3>Probability & Statistics</h3>
-                    <p>P&S</p>
+                <div class="semester-icon">
+                    📙
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-info">
+                    <span>SECOND YEAR</span>
+                    <h3>Semester 3</h3>
+                    <p>Core Computer Engineering</p>
+                </div>
+
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
 
-            <a class="card" href="subjects/law.html">
+            <!-- SEMESTER 4 -->
 
-                <div class="card-icon orange">
-                    ⚖️
+            <a href="semesters/semester4.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    04
                 </div>
 
-                <div class="card-content">
-                    <h3>Law</h3>
-                    <p>New Labour Codes</p>
+                <div class="semester-icon">
+                    📕
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-info">
+                    <span>SECOND YEAR</span>
+                    <h3>Semester 4</h3>
+                    <p>Algorithms & Computing</p>
+                </div>
+
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
 
-            <a class="card" href="subjects/signals.html">
+            <!-- SEMESTER 5 -->
 
-                <div class="card-icon pink">
-                    📡
+            <a href="semesters/semester5.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    05
                 </div>
 
-                <div class="card-content">
-                    <h3>Signals & Systems</h3>
-                    <p>System & Signals</p>
+                <div class="semester-icon">
+                    📒
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-info">
+                    <span>THIRD YEAR</span>
+                    <h3>Semester 5</h3>
+                    <p>AI, OS & Database Systems</p>
+                </div>
+
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
 
-            <a class="card" href="subjects/marathi.html">
+            <!-- SEMESTER 6 -->
 
-                <div class="card-icon red">
-                    📝
+            <a href="semesters/semester6.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    06
                 </div>
 
-                <div class="card-content">
-                    <h3>Marathi</h3>
-                    <p>Language</p>
+                <div class="semester-icon">
+                    📔
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-info">
+                    <span>THIRD YEAR</span>
+                    <h3>Semester 6</h3>
+                    <p>Networks, DevOps & AI</p>
+                </div>
+
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
 
-            <a class="card" href="subjects/ambedkar.html">
+            <!-- SEMESTER 7 -->
 
-                <div class="card-icon gold">
-                    👤
+            <a href="semesters/semester7.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    07
                 </div>
 
-                <div class="card-content">
-                    <h3>Dr. B. R. Ambedkar</h3>
-                    <p>Study Material</p>
+                <div class="semester-icon">
+                    📚
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-info">
+                    <span>FOURTH YEAR</span>
+                    <h3>Semester 7</h3>
+                    <p>Distributed Computing & Project</p>
+                </div>
+
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
 
-            <a class="card" href="subjects/constitution.html">
+            <!-- SEMESTER 8 -->
 
-                <div class="card-icon teal">
-                    📜
+            <a href="semesters/semester8.html"
+               class="semester-card">
+
+                <div class="semester-number">
+                    08
                 </div>
 
-                <div class="card-content">
-                    <h3>Constitution</h3>
-                    <p>Indian Constitution</p>
+                <div class="semester-icon">
+                    🎓
                 </div>
 
-                <span class="arrow">→</span>
+                <div class="semester-info">
+                    <span>FOURTH YEAR</span>
+                    <h3>Semester 8</h3>
+                    <p>AI, Research & Final Project</p>
+                </div>
+
+                <div class="semester-arrow">
+                    →
+                </div>
 
             </a>
 
         </div>
 
         <p id="noResults" class="no-results">
-            No subjects found.
+            No semester or subject found.
         </p>
 
     </section>
 
 
+    <section class="info-section" id="about">
 
-    <!-- PRACTICALS -->
-
-    <section class="section practical-section" id="practicals">
-
-        <div class="section-heading">
-
-            <div>
-                <span class="section-label">PRACTICALS</span>
-
-                <h2>Programming & Lab Work</h2>
-
-                <p>
-                    Practical programs and laboratory resources.
-                </p>
-            </div>
-
+        <div class="info-icon">
+            🧡
         </div>
 
+        <div>
+            <span class="section-label">
+                STUDYMATERIAL
+            </span>
 
-        <div class="practical-grid">
+            <h2>
+                A helping hand for students
+            </h2>
 
-
-            <a class="practical-card" href="subjects/daa_practical.html">
-
-                <span>🧪</span>
-
-                <div>
-                    <h3>DAA Practical</h3>
-                    <p>Algorithms & programs</p>
-                </div>
-
-                <b>→</b>
-
-            </a>
-
-
-            <a class="practical-card" href="subjects/python_practical.html">
-
-                <span>🐍</span>
-
-                <div>
-                    <h3>Python Practical</h3>
-                    <p>Python programs & exercises</p>
-                </div>
-
-                <b>→</b>
-
-            </a>
-
-
-            <a class="practical-card" href="subjects/fsd_practical.html">
-
-                <span>🌐</span>
-
-                <div>
-                    <h3>FSD Practical</h3>
-                    <p>Full Stack Development</p>
-                </div>
-
-                <b>→</b>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- UPLOAD -->
-
-    <section class="upload-section" id="upload">
-
-        <div class="upload-content">
-
-            <div class="upload-icon">
-                📄
-            </div>
-
-            <div>
-
-                <span class="section-label">
-                    COMMUNITY
-                </span>
-
-                <h2>
-                    Have useful study material?
-                </h2>
-
-                <p>
-                    Upload a PDF and make it easier for others
-                    to access useful resources.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="upload-controls">
-
-            <input
-                type="file"
-                id="fileInput"
-                accept="application/pdf"
-            >
-
-            <button onclick="uploadPDF()">
-                Upload PDF
-            </button>
-
+            <p>
+                Find your semester, choose your subject and
+                access useful study resources in one place.
+            </p>
         </div>
 
     </section>
@@ -364,27 +334,19 @@
 </main>
 
 
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
     <div class="footer-content">
 
         <div>
             <strong>📚 StudyMaterial</strong>
-
-            <p>
-                A helping hand for students 🧡
-            </p>
+            <p>A helping hand for students 🧡</p>
         </div>
 
-        <div class="footer-links">
-
-            <a href="#home">Home</a>
-            <a href="#subjects">Subjects</a>
-            <a href="#practicals">Practicals</a>
-
+        <div>
+            <p>
+                B.Tech Computer Engineering
+            </p>
         </div>
 
     </div>

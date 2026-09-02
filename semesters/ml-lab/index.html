@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Machine Learning Laboratory | Study Material</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .navbar h2 {
+            font-size: 21px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: white;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Header */
+        .hero {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+            color: #162b3a;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding-bottom: 50px;
+        }
+
+        /* Search */
+        .search-box {
+            margin: 10px auto 35px;
+            max-width: 600px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 18px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .search-box input:focus {
+            border-color: #2c5364;
+        }
+
+        /* Section title */
+        .section-title {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #203a43;
+        }
+
+        /* Cards */
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 22px;
+        }
+
+        .practical-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .practical-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .practical-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #203a43;
+        }
+
+        .practical-card p {
+            color: #777;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .view-btn {
+            background: #203a43;
+            color: white;
+        }
+
+        .view-btn:hover {
+            background: #162b32;
+        }
+
+        .download-btn {
+            background: #e9f2f5;
+            color: #203a43;
+        }
+
+        .download-btn:hover {
+            background: #d8e8ed;
+        }
+
+        /* Empty message */
+        .no-result {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #162b3a;
+            color: white;
+            margin-top: 30px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 15px 5%;
+            }
+
+            .navbar h2 {
+                font-size: 17px;
+            }
+
+            .back-btn {
+                padding: 8px 11px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>📚 Study Material</h2>
+
+        <a href="../semester5.html" class="back-btn">
+            ← Semester 5
+        </a>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <h1>🤖 Machine Learning Laboratory</h1>
+
+        <p>
+            B.Tech Computer Engineering • Semester 5
+        </p>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Search -->
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search practical..."
+                onkeyup="searchPracticals()"
+            >
+        </div>
+
+
+        <h2 class="section-title">
+            📘 Practical Programs
+        </h2>
+
+
+        <!-- Practical Cards -->
+        <div class="practical-grid" id="practicalList">
+
+
+            <!-- Practical 1 -->
+            <div class="practical-card">
+
+                <div class="icon">📄</div>
+
+                <h3>Practical 1</h3>
+
+                <p>
+                    Machine Learning Laboratory Practical 1
+                </p>
+
+                <div class="buttons">
+
+                    <a
+                        href="practical-1.pdf"
+                        target="_blank"
+                        class="btn view-btn"
+                    >
+                        📖 View PDF
+                    </a>
+
+                    <a
+                        href="practical-1.pdf"
+                        download
+                        class="btn download-btn"
+                    >
+                        ⬇ Download
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Practical 2 -->
+            <div class="practical-card">
+
+                <div class="icon">📄</div>
+
+                <h3>Practical 2</h3>
+
+                <p>
+                    Machine Learning Laboratory Practical 2
+                </p>
+
+                <div class="buttons">
+
+                    <a
+                        href="practical-2.pdf"
+                        target="_blank"
+                        class="btn view-btn"
+                    >
+                        📖 View PDF
+                    </a>
+
+                    <a
+                        href="practical-2.pdf"
+                        download
+                        class="btn download-btn"
+                    >
+                        ⬇ Download
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Practical 3 -->
+            <div class="practical-card">
+
+                <div class="icon">📄</div>
+
+                <h3>Practical 3</h3>
+
+                <p>
+                    Machine Learning Laboratory Practical 3
+                </p>
+
+                <div class="buttons">
+
+                    <a
+                        href="practical-3.pdf"
+                        target="_blank"
+                        class="btn view-btn"
+                    >
+                        📖 View PDF
+                    </a>
+
+                    <a
+                        href="practical-3.pdf"
+                        download
+                        class="btn download-btn"
+                    >
+                        ⬇ Download
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div id="noResult" class="no-result">
+            ❌ No practical found.
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Study Material • Computer Engineering
+        </p>
+
+    </footer>
+
+
+    <!-- Search Script -->
+    <script>
+
+        function searchPracticals() {
+
+            let input =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            let cards =
+                document.getElementsByClassName("practical-card");
+
+            let found = 0;
+
+            for (let i = 0; i < cards.length; i++) {
+
+                let text =
+                    cards[i].innerText.toLowerCase();
+
+                if (text.includes(input)) {
+
+                    cards[i].style.display = "block";
+                    found++;
+
+                } else {
+
+                    cards[i].style.display = "none";
+
+                }
+            }
+
+            document.getElementById("noResult").style.display =
+                found === 0 ? "block" : "none";
+        }
+
+    </script>
+
+</body>
+</html>

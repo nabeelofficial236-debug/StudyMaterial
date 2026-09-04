@@ -2,7 +2,7 @@
 
 > **A simple, organized study hub for B.Tech Computer Engineering students.**
 
-StudyMaterial brings semester-wise resources, subject materials, notes, and practicals together in one place — making it easier to find what you need and focus on learning.
+Study Material brings semester-wise resources, subject materials, notes, and practicals together in one place — making it easier to find what you need and focus on learning.
 
 ---
 
@@ -50,7 +50,7 @@ No frameworks. No backend. Just a simple, fast, and accessible website.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 How  To Clone The Repo Locally :
 
 Clone the repository:
 
@@ -74,12 +74,13 @@ That's it. 🎯
 
 Contributions are welcome!
 
-If you'd like to add study material, improve the UI, fix a bug, or add a new feature:
+If you'd like to add study material, improve the UI, fix a bug, or add a new feature After Fork & Cloning of this Repo:
 
-1. Create a new branch.
-2. Make your changes.
-3. Commit your changes.
-4. Push the branch.
+1. Create a issue.
+2. Create a new branch.
+3. Make your changes.
+4. Commit your changes.
+5. Push the branch.
 5. Open a Pull Request.
 
 ```bash
@@ -97,5 +98,5 @@ The goal of **StudyMaterial** is simple:
 ---
 
 <p align="center">
-  Made with ❤️ for Computer Engineering students
+  Made with ❤️ for Computer Engineering Students
 </p>

@@ -1,470 +1,91 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A new chapter of StudyMaterial is coming soon."
-    />
-    <title>Coming Soon | StudyMaterial</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coming Soon | Study Material</title>
+
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap");
-
-      :root {
-        --ink: #173f37;
-        --deep-ink: #0b2824;
-        --paper: #f4f0e6;
-        --acid: #d8ed73;
-        --coral: #f07f62;
-        --muted: #8da49a;
-        --line: rgba(244, 240, 230, 0.18);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        overflow-x: hidden;
-        background: var(--ink);
-        color: var(--paper);
-        font-family: "Syne", sans-serif;
-      }
-
-      body::before {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        background-image:
-          linear-gradient(rgba(244, 240, 230, 0.035) 1px, transparent 1px),
-          linear-gradient(
-            90deg,
-            rgba(244, 240, 230, 0.035) 1px,
-            transparent 1px
-          );
-        background-size: 48px 48px;
-        content: "";
-        mask-image: linear-gradient(to bottom, black, transparent 85%);
-      }
-
-      .page {
-        width: min(1180px, calc(100% - 48px));
-        min-height: 100vh;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-      }
-
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 30px 0;
-        border-bottom: 1px solid var(--line);
-        animation: rise 0.8s ease both;
-      }
-
-      .brand {
-        color: var(--paper);
-        font-size: 1.05rem;
-        font-weight: 800;
-        letter-spacing: -0.04em;
-        text-decoration: none;
-      }
-
-      .brand-mark {
-        display: inline-grid;
-        width: 29px;
-        height: 29px;
-        margin-right: 9px;
-        place-items: center;
-        background: var(--acid);
-        color: var(--ink);
-        font-family: "DM Mono", monospace;
-        font-size: 0.78rem;
-        transform: rotate(-8deg);
-      }
-
-      .status {
-        color: var(--acid);
-        font-family: "DM Mono", monospace;
-        font-size: 0.68rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      main {
-        display: grid;
-        flex: 1;
-        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-        align-items: center;
-        gap: clamp(48px, 9vw, 135px);
-        padding: 9vh 0 10vh;
-      }
-
-      .eyebrow {
-        display: flex;
-        align-items: center;
-        gap: 11px;
-        margin: 0 0 26px;
-        color: var(--acid);
-        font-family: "DM Mono", monospace;
-        font-size: 0.72rem;
-        letter-spacing: 0.13em;
-        text-transform: uppercase;
-        animation: rise 0.8s 0.1s ease both;
-      }
-
-      .eyebrow::before {
-        width: 34px;
-        height: 2px;
-        background: var(--acid);
-        content: "";
-      }
-
-      h1 {
-        max-width: 760px;
-        margin: 0;
-        color: var(--paper);
-        font-size: clamp(4.4rem, 10vw, 9.5rem);
-        font-weight: 700;
-        letter-spacing: -0.095em;
-        line-height: 0.85;
-        animation: rise 0.8s 0.2s ease both;
-      }
-
-      h1 span {
-        display: block;
-        color: var(--coral);
-      }
-
-      .intro {
-        max-width: 510px;
-        margin: 37px 0 0;
-        color: #c3d0c8;
-        font-size: clamp(1rem, 1.5vw, 1.18rem);
-        line-height: 1.65;
-        animation: rise 0.8s 0.3s ease both;
-      }
-
-      .notify-form {
-        display: flex;
-        max-width: 500px;
-        margin-top: 34px;
-        padding: 5px;
-        border: 1px solid var(--line);
-        background: rgba(11, 40, 36, 0.36);
-        animation: rise 0.8s 0.4s ease both;
-      }
-
-      .notify-form input {
-        min-width: 0;
-        flex: 1;
-        padding: 14px 16px;
-        border: 0;
-        outline: 0;
-        background: transparent;
-        color: var(--paper);
-        font:
-          0.87rem "DM Mono",
-          monospace;
-      }
-
-      .notify-form input::placeholder {
-        color: var(--muted);
-      }
-
-      .notify-form button {
-        border: 0;
-        padding: 0 22px;
-        background: var(--acid);
-        color: var(--deep-ink);
-        cursor: pointer;
-        font:
-          700 0.72rem "DM Mono",
-          monospace;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        transition:
-          background 0.2s,
-          transform 0.2s;
-      }
-
-      .notify-form button:hover {
-        background: #edf99b;
-        transform: translateY(-2px);
-      }
-
-      .visual {
-        position: relative;
-        min-height: 360px;
-        display: grid;
-        place-items: center;
-        animation: reveal 1s 0.35s ease both;
-      }
-
-      .orbit {
-        position: absolute;
-        width: min(31vw, 330px);
-        aspect-ratio: 1;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-      }
-
-      .orbit::before,
-      .orbit::after {
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        content: "";
-      }
-
-      .orbit::before {
-        top: 9%;
-        right: 16%;
-        background: var(--acid);
-        box-shadow: 0 0 28px var(--acid);
-      }
-
-      .orbit::after {
-        bottom: 13%;
-        left: 8%;
-        background: var(--coral);
-        box-shadow: 0 0 28px var(--coral);
-      }
-
-      .date-card {
-        position: relative;
-        z-index: 1;
-        width: min(260px, 76vw);
-        aspect-ratio: 0.82;
-        padding: 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background: var(--paper);
-        color: var(--ink);
-        box-shadow: 20px 20px 0 var(--coral);
-        transform: rotate(6deg);
-      }
-
-      .date-card small {
-        font:
-          0.68rem "DM Mono",
-          monospace;
-        letter-spacing: 0.11em;
-        text-transform: uppercase;
-      }
-
-      .date-card strong {
-        display: block;
-        font-size: clamp(4.3rem, 8vw, 6.5rem);
-        letter-spacing: -0.1em;
-        line-height: 0.8;
-      }
-
-      .date-card footer {
-        border-top: 1px solid rgba(23, 63, 55, 0.25);
-        padding-top: 14px;
-        color: var(--ink);
-        font:
-          0.68rem "DM Mono",
-          monospace;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-      }
-
-      .countdown {
-        display: flex;
-        gap: 22px;
-        padding-top: 29px;
-        border-top: 1px solid var(--line);
-        animation: rise 0.8s 0.5s ease both;
-      }
-
-      .countdown div {
-        display: grid;
-        gap: 5px;
-      }
-
-      .countdown b {
-        color: var(--paper);
-        font-size: 1.45rem;
-        letter-spacing: -0.06em;
-      }
-
-      .countdown span {
-        color: var(--muted);
-        font:
-          0.62rem "DM Mono",
-          monospace;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .form-message {
-        min-height: 18px;
-        margin: 10px 0 0;
-        color: var(--acid);
-        font:
-          0.7rem "DM Mono",
-          monospace;
-      }
-
-      @keyframes rise {
-        from {
-          opacity: 0;
-          transform: translateY(18px);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
 
-      @keyframes reveal {
-        from {
-          opacity: 0;
-          transform: scale(0.92) rotate(-4deg);
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                135deg,
+                #312e81,
+                #4f46e5,
+                #2563eb
+            );
+            color: white;
         }
-        to {
-          opacity: 1;
-          transform: scale(1) rotate(0);
-        }
-      }
 
-      @media (max-width: 760px) {
-        .page {
-          width: min(100% - 34px, 560px);
+        .coming-soon {
+            text-align: center;
+            padding: 40px;
         }
-        header {
-          padding: 23px 0;
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
         }
-        main {
-          grid-template-columns: 1fr;
-          gap: 60px;
-          padding: 72px 0 58px;
-        }
+
         h1 {
-          font-size: clamp(4.2rem, 20vw, 7rem);
+            font-size: 48px;
+            margin-bottom: 15px;
         }
-        .visual {
-          min-height: 300px;
-        }
-        .orbit {
-          width: min(76vw, 315px);
-        }
-        .date-card {
-          width: 215px;
-          box-shadow: 14px 14px 0 var(--coral);
-        }
-        .notify-form {
-          flex-direction: column;
-          gap: 5px;
-          background: transparent;
-          border: 0;
-          padding: 0;
-        }
-        .notify-form input {
-          min-height: 50px;
-          border: 1px solid var(--line);
-        }
-        .notify-form button {
-          min-height: 50px;
-        }
-      }
 
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          transition-duration: 0.01ms !important;
+        p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
         }
-      }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: white;
+            color: #312e81;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
     </style>
-  </head>
-  <body>
-    <div class="page">
-      <header>
-        <a class="brand" href="index.html"
-          ><span class="brand-mark">S/</span>StudyMaterial</a
-        >
-        <span class="status">New chapter loading</span>
-      </header>
+</head>
 
-      <main>
-        <section>
-          <p class="eyebrow">Under construction</p>
-          <h1>Something<br /><span>useful</span><br />is coming.</h1>
-          <p class="intro">
-            We are putting the finishing touches on a sharper, more useful study
-            experience. Your next semester of learning is almost ready.
-          </p>
-          <form class="notify-form" id="notify-form">
-            <input
-              type="email"
-              id="email"
-              placeholder="your@email.com"
-              aria-label="Email address"
-              required
-            />
-            <button type="submit">Keep me posted</button>
-          </form>
-          <p class="form-message" id="form-message" role="status"></p>
-          <div class="countdown" aria-label="Launch countdown">
-            <div><b id="days">00</b><span>Days</span></div>
-            <div><b id="hours">00</b><span>Hours</span></div>
-            <div><b id="minutes">00</b><span>Minutes</span></div>
-            <div><b id="seconds">00</b><span>Seconds</span></div>
-          </div>
-        </section>
+<body>
 
-        <aside class="visual" aria-label="Launch date: October 15, 2026">
-          <div class="orbit"></div>
-          <div class="date-card">
-            <small>Mark your calendar</small>
-            <strong>15<br />OCT</strong>
-            <footer>StudyMaterial / 2026</footer>
-          </div>
-        </aside>
-      </main>
-    </div>
+    <main class="coming-soon">
 
-    <script>
-      const launchDate = new Date("2026-10-15T09:00:00").getTime();
-      const countdownIds = ["days", "hours", "minutes", "seconds"];
+        <div class="icon">🚧</div>
 
-      function updateCountdown() {
-        const distance = Math.max(0, launchDate - Date.now());
-        const values = [
-          Math.floor(distance / 86400000),
-          Math.floor(distance / 3600000) % 24,
-          Math.floor(distance / 60000) % 60,
-          Math.floor(distance / 1000) % 60,
-        ];
-        countdownIds.forEach((id, index) => {
-          document.getElementById(id).textContent = String(
-            values[index],
-          ).padStart(2, "0");
-        });
-      }
+        <h1>Coming Soon</h1>
 
-      document
-        .getElementById("notify-form")
-        .addEventListener("submit", (event) => {
-          event.preventDefault();
-          document.getElementById("form-message").textContent =
-            "You are on the list. See you soon.";
-          event.target.reset();
-        });
+        <p>
+            We're working on this page.<br>
+            Study material will be available here soon.
+        </p>
 
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    </script>
-  </body>
+        <a href="../../../index.html" class="back-btn">
+            ← Back to Home
+        </a>
+
+    </main>
+
+</body>
 </html>

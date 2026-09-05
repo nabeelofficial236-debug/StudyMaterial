@@ -1,365 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="StudyMaterial - Computer Engineering study resources">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="StudyMaterial - Computer Engineering study resources"
+    />
     <title>StudyMaterial | Computer Engineering</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/favicon.ico" />
+  </head>
 
-<body>
-
-<nav class="navbar">
-    <div class="nav-container">
-
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
         <a href="index.html" class="logo">
-            <span>📚</span>
-            StudyMaterial
+          <span>📚</span>
+          StudyMaterial
         </a>
 
         <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#semesters">Semesters</a>
-            <a href="#about">About</a>
+          <a href="#home">Home</a>
+          <a href="#semesters">Semesters</a>
+          <a href="#about">About</a>
         </div>
+      </div>
+    </nav>
 
-    </div>
-</nav>
-
-
-<header class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            🎓 B.Tech Computer Engineering
-        </div>
+    <header class="hero" id="home">
+      <div class="hero-content">
+        <div class="badge">🎓 B.Tech Computer Engineering</div>
 
         <h1>
-            Study smarter.
-            <span>Prepare better.</span>
+          Study smarter.
+          <span>Prepare better.</span>
         </h1>
 
         <p>
-            Notes, practicals, previous-year questions and
-            study resources for Computer Engineering students.
+          Notes, practicals, previous-year questions and study resources for
+          Computer Engineering students.
         </p>
 
         <div class="search-box">
-            <span>🔍</span>
+          <span>🔍</span>
 
-            <input
-                type="text"
-                id="search"
-                placeholder="Search semester or subject..."
-                onkeyup="searchFunction()"
-            >
+          <input
+            type="text"
+            id="search"
+            placeholder="Search semester or subject..."
+            onkeyup="searchFunction()"
+          />
         </div>
+      </div>
+    </header>
 
-    </div>
-
-</header>
-
-
-<main class="container">
-
-    <section class="section" id="semesters">
-
+    <main class="container">
+      <section class="section" id="semesters">
         <div class="section-heading">
+          <div>
+            <span class="section-label"> COMPUTER ENGINEERING </span>
 
-            <div>
-                <span class="section-label">
-                    COMPUTER ENGINEERING
-                </span>
+            <h2>Explore Your Semester</h2>
 
-                <h2>
-                    Explore Your Semester
-                </h2>
+            <p>Select your semester to find subjects and study material.</p>
+          </div>
 
-                <p>
-                    Select your semester to find subjects and study material.
-                </p>
-            </div>
-
-            <div class="semester-count">
-                8 Semesters
-            </div>
-
+          <div class="semester-count">8 Semesters</div>
         </div>
-
 
         <div class="semester-grid" id="semesterList">
+          <!-- SEMESTER 1 -->
 
+          <a href="semesters/semester1.html" class="semester-card">
+            <div class="semester-number">01</div>
 
-            <!-- SEMESTER 1 -->
+            <div class="semester-icon">📘</div>
 
-            <a href="semesters/semester1.html"
-               class="semester-card">
+            <div class="semester-info">
+              <span>FIRST YEAR</span>
+              <h3>Semester 1</h3>
+              <p>Foundation & Engineering</p>
+            </div>
 
-                <div class="semester-number">
-                    01
-                </div>
+            <div class="semester-arrow">→</div>
+          </a>
 
-                <div class="semester-icon">
-                    📘
-                </div>
+          <!-- SEMESTER 2 -->
 
-                <div class="semester-info">
-                    <span>FIRST YEAR</span>
-                    <h3>Semester 1</h3>
-                    <p>Foundation & Engineering</p>
-                </div>
+          <a href="semesters/semester2.html" class="semester-card">
+            <div class="semester-number">02</div>
 
-                <div class="semester-arrow">
-                    →
-                </div>
+            <div class="semester-icon">📗</div>
 
-            </a>
+            <div class="semester-info">
+              <span>FIRST YEAR</span>
+              <h3>Semester 2</h3>
+              <p>Engineering Fundamentals</p>
+            </div>
 
+            <div class="semester-arrow">→</div>
+          </a>
 
-            <!-- SEMESTER 2 -->
+          <!-- SEMESTER 3 -->
 
-            <a href="semesters/semester2.html"
-               class="semester-card">
+          <a href="semesters/sem-3/smester3.html" class="semester-card">
+            <div class="semester-number">03</div>
 
-                <div class="semester-number">
-                    02
-                </div>
+            <div class="semester-icon">📙</div>
 
-                <div class="semester-icon">
-                    📗
-                </div>
+            <div class="semester-info">
+              <span>SECOND YEAR</span>
+              <h3>Semester 3</h3>
+              <p>Core Computer Engineering</p>
+            </div>
 
-                <div class="semester-info">
-                    <span>FIRST YEAR</span>
-                    <h3>Semester 2</h3>
-                    <p>Engineering Fundamentals</p>
-                </div>
+            <div class="semester-arrow">→</div>
+          </a>
 
-                <div class="semester-arrow">
-                    →
-                </div>
+          <!-- SEMESTER 4 -->
 
-            </a>
+          <a href="semesters/semester4.html" class="semester-card">
+            <div class="semester-number">04</div>
 
+            <div class="semester-icon">📕</div>
 
-            <!-- SEMESTER 3 -->
+            <div class="semester-info">
+              <span>SECOND YEAR</span>
+              <h3>Semester 4</h3>
+              <p>Algorithms & Computing</p>
+            </div>
 
-            <a href="semesters/sem-3/smester3.html"
-               class="semester-card">
+            <div class="semester-arrow">→</div>
+          </a>
 
-                <div class="semester-number">
-                    03
-                </div>
+          <!-- SEMESTER 5 -->
 
-                <div class="semester-icon">
-                    📙
-                </div>
+          <a href="semesters/sem-5/semester5.html" class="semester-card">
+            <div class="semester-number">05</div>
 
-                <div class="semester-info">
-                    <span>SECOND YEAR</span>
-                    <h3>Semester 3</h3>
-                    <p>Core Computer Engineering</p>
-                </div>
+            <div class="semester-icon">📒</div>
 
-                <div class="semester-arrow">
-                    →
-                </div>
+            <div class="semester-info">
+              <span>THIRD YEAR</span>
+              <h3>Semester 5</h3>
+              <p>AI, OS & Database Systems</p>
+            </div>
 
-            </a>
+            <div class="semester-arrow">→</div>
+          </a>
 
+          <!-- SEMESTER 6 -->
 
-            <!-- SEMESTER 4 -->
+          <a href="semesters/semester6.html" class="semester-card">
+            <div class="semester-number">06</div>
 
-            <a href="semesters/semester4.html"
-               class="semester-card">
+            <div class="semester-icon">📔</div>
 
-                <div class="semester-number">
-                    04
-                </div>
+            <div class="semester-info">
+              <span>THIRD YEAR</span>
+              <h3>Semester 6</h3>
+              <p>Networks, DevOps & AI</p>
+            </div>
 
-                <div class="semester-icon">
-                    📕
-                </div>
+            <div class="semester-arrow">→</div>
+          </a>
 
-                <div class="semester-info">
-                    <span>SECOND YEAR</span>
-                    <h3>Semester 4</h3>
-                    <p>Algorithms & Computing</p>
-                </div>
+          <!-- SEMESTER 7 -->
 
-                <div class="semester-arrow">
-                    →
-                </div>
+          <a href="semesters/semester7.html" class="semester-card">
+            <div class="semester-number">07</div>
 
-            </a>
+            <div class="semester-icon">📚</div>
 
+            <div class="semester-info">
+              <span>FOURTH YEAR</span>
+              <h3>Semester 7</h3>
+              <p>Distributed Computing & Project</p>
+            </div>
 
-            <!-- SEMESTER 5 -->
+            <div class="semester-arrow">→</div>
+          </a>
 
-            <a href="semesters/sem-5/semester5.html"
-               class="semester-card">
+          <!-- SEMESTER 8 -->
 
-                <div class="semester-number">
-                    05
-                </div>
+          <a href="semesters/semester8.html" class="semester-card">
+            <div class="semester-number">08</div>
 
-                <div class="semester-icon">
-                    📒
-                </div>
+            <div class="semester-icon">🎓</div>
 
-                <div class="semester-info">
-                    <span>THIRD YEAR</span>
-                    <h3>Semester 5</h3>
-                    <p>AI, OS & Database Systems</p>
-                </div>
+            <div class="semester-info">
+              <span>FOURTH YEAR</span>
+              <h3>Semester 8</h3>
+              <p>AI, Research & Final Project</p>
+            </div>
 
-                <div class="semester-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- SEMESTER 6 -->
-
-            <a href="semesters/semester6.html"
-               class="semester-card">
-
-                <div class="semester-number">
-                    06
-                </div>
-
-                <div class="semester-icon">
-                    📔
-                </div>
-
-                <div class="semester-info">
-                    <span>THIRD YEAR</span>
-                    <h3>Semester 6</h3>
-                    <p>Networks, DevOps & AI</p>
-                </div>
-
-                <div class="semester-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- SEMESTER 7 -->
-
-            <a href="semesters/semester7.html"
-               class="semester-card">
-
-                <div class="semester-number">
-                    07
-                </div>
-
-                <div class="semester-icon">
-                    📚
-                </div>
-
-                <div class="semester-info">
-                    <span>FOURTH YEAR</span>
-                    <h3>Semester 7</h3>
-                    <p>Distributed Computing & Project</p>
-                </div>
-
-                <div class="semester-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- SEMESTER 8 -->
-
-            <a href="semesters/semester8.html"
-               class="semester-card">
-
-                <div class="semester-number">
-                    08
-                </div>
-
-                <div class="semester-icon">
-                    🎓
-                </div>
-
-                <div class="semester-info">
-                    <span>FOURTH YEAR</span>
-                    <h3>Semester 8</h3>
-                    <p>AI, Research & Final Project</p>
-                </div>
-
-                <div class="semester-arrow">
-                    →
-                </div>
-
-            </a>
-
+            <div class="semester-arrow">→</div>
+          </a>
         </div>
 
-        <p id="noResults" class="no-results">
-            No semester or subject found.
-        </p>
+        <p id="noResults" class="no-results">No semester or subject found.</p>
+      </section>
 
-    </section>
+      <section class="info-section" id="about">
+        <div class="info-icon">🧡</div>
 
+        <div>
+          <span class="section-label"> STUDYMATERIAL </span>
 
-    <section class="info-section" id="about">
+          <h2>A helping hand for students</h2>
 
-        <div class="info-icon">
-            🧡
+          <p>
+            Find your semester, choose your subject and access useful study
+            resources in one place.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <strong>📚 StudyMaterial</strong>
+          <p>A helping hand for students 🧡</p>
         </div>
 
         <div>
-            <span class="section-label">
-                STUDYMATERIAL
-            </span>
-
-            <h2>
-                A helping hand for students
-            </h2>
-
-            <p>
-                Find your semester, choose your subject and
-                access useful study resources in one place.
-            </p>
+          <p>B.Tech Computer Engineering</p>
         </div>
+      </div>
 
-    </section>
+      <div class="copyright">© 2026 StudyMaterial. Made for students.</div>
+    </footer>
 
-</main>
-
-
-<footer>
-
-    <div class="footer-content">
-
-        <div>
-            <strong>📚 StudyMaterial</strong>
-            <p>A helping hand for students 🧡</p>
-        </div>
-
-        <div>
-            <p>
-                B.Tech Computer Engineering
-            </p>
-        </div>
-
-    </div>
-
-    <div class="copyright">
-        © 2026 StudyMaterial. Made for students.
-    </div>
-
-</footer>
-
-
-<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

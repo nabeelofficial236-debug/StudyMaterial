@@ -1,746 +1,461 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Semester 5 | StudyMaterial</title>
 
-<link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" href="../../assets/favicon.ico" />
     <style>
+      .semester-header {
+        background: linear-gradient(135deg, #312e81, #4f46e5, #2563eb);
+
+        color: white;
+
+        padding: 70px 20px;
+
+        text-align: center;
+      }
+
+      .back {
+        display: inline-block;
+
+        margin-bottom: 20px;
+
+        color: #e0e7ff;
+
+        text-decoration: none;
+
+        font-size: 14px;
+      }
+
+      .semester-header h1 {
+        font-size: clamp(40px, 7vw, 65px);
+
+        line-height: 1.1;
+
+        margin-bottom: 10px;
+      }
+
+      .semester-header p {
+        color: #dbeafe;
+
+        font-size: 17px;
+      }
+
+      .course-section {
+        padding: 60px 0;
+      }
+
+      .course-title {
+        margin-bottom: 25px;
+      }
+
+      .course-title span {
+        color: #4f46e5;
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        letter-spacing: 1.5px;
+      }
+
+      .course-title h2 {
+        font-size: 30px;
+
+        margin-top: 5px;
+      }
+
+      .course-title p {
+        color: #667085;
+      }
+
+      .course-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+      }
+
+      .course-card {
+        position: relative;
+
+        padding: 22px;
+
+        background: white;
+
+        border: 1px solid #e6e9f0;
+
+        border-radius: 18px;
+
+        text-decoration: none;
+
+        color: #172033;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 16px;
+
+        transition: 0.25s;
+      }
+
+      .course-card:hover {
+        transform: translateY(-4px);
+
+        border-color: #c7d2fe;
+
+        box-shadow: 0 15px 35px rgba(31, 41, 55, 0.1);
+      }
+
+      .course-icon {
+        width: 55px;
+        height: 55px;
+
+        flex-shrink: 0;
+
+        display: grid;
+
+        place-items: center;
+
+        background: #eef2ff;
+
+        border-radius: 15px;
+
+        font-size: 24px;
+      }
+
+      .course-card h3 {
+        font-size: 17px;
+
+        line-height: 1.3;
+      }
+
+      .course-card p {
+        color: #8a94a6;
+
+        font-size: 13px;
+
+        margin-top: 4px;
+      }
+
+      .course-arrow {
+        margin-left: auto;
+
+        color: #98a2b3;
+
+        font-size: 22px;
+      }
+
+      .practical-section {
+        background: #f1f5ff;
+
+        padding: 60px 0;
+      }
+
+      .practical-card {
+        background: #172033;
+
+        color: white;
+      }
+
+      .practical-card p {
+        color: #aeb8c9;
+      }
+
+      .other-section {
+        padding: 60px 0;
+      }
+
+      .syllabus-card button {
+        margin-top: 20px;
+
+        padding: 10px;
+        border-radius: 6px;
+        font-weight: 900;
+      }
+      .syllabus-card button:hover {
+        cursor: pointer;
+      }
+      @media (max-width: 700px) {
+        .course-grid {
+          grid-template-columns: 1fr;
+        }
 
         .semester-header {
-            background:
-                linear-gradient(
-                    135deg,
-                    #312e81,
-                    #4f46e5,
-                    #2563eb
-                );
-
-            color: white;
-
-            padding: 70px 20px;
-
-            text-align: center;
+          padding: 55px 20px;
         }
-
-        .back {
-            display: inline-block;
-
-            margin-bottom: 20px;
-
-            color: #e0e7ff;
-
-            text-decoration: none;
-
-            font-size: 14px;
-        }
-
-        .semester-header h1 {
-            font-size: clamp(40px, 7vw, 65px);
-
-            line-height: 1.1;
-
-            margin-bottom: 10px;
-        }
-
-        .semester-header p {
-            color: #dbeafe;
-
-            font-size: 17px;
-        }
-
-        .course-section {
-            padding: 60px 0;
-        }
-
-        .course-title {
-            margin-bottom: 25px;
-        }
-
-        .course-title span {
-            color: #4f46e5;
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.5px;
-        }
-
-        .course-title h2 {
-            font-size: 30px;
-
-            margin-top: 5px;
-        }
-
-        .course-title p {
-            color: #667085;
-        }
-
-        .course-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 16px;
-        }
-
-        .course-card {
-            position: relative;
-
-            padding: 22px;
-
-            background: white;
-
-            border: 1px solid #e6e9f0;
-
-            border-radius: 18px;
-
-            text-decoration: none;
-
-            color: #172033;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 16px;
-
-            transition: 0.25s;
-        }
-
-        .course-card:hover {
-            transform: translateY(-4px);
-
-            border-color: #c7d2fe;
-
-            box-shadow:
-                0 15px 35px
-                rgba(31,41,55,0.10);
-        }
-
-        .course-icon {
-            width: 55px;
-            height: 55px;
-
-            flex-shrink: 0;
-
-            display: grid;
-
-            place-items: center;
-
-            background: #eef2ff;
-
-            border-radius: 15px;
-
-            font-size: 24px;
-        }
-
-        .course-card h3 {
-            font-size: 17px;
-
-            line-height: 1.3;
-        }
-
-        .course-card p {
-            color: #8a94a6;
-
-            font-size: 13px;
-
-            margin-top: 4px;
-        }
-
-        .course-arrow {
-            margin-left: auto;
-
-            color: #98a2b3;
-
-            font-size: 22px;
-        }
-
-        .practical-section {
-            background: #f1f5ff;
-
-            padding: 60px 0;
-        }
-
-        .practical-card {
-            background: #172033;
-
-            color: white;
-        }
-
-        .practical-card p {
-            color: #aeb8c9;
-        }
-
-        .other-section {
-            padding: 60px 0;
-        }
-
-        .syllabus-card button {
-            margin-top: 20px;
-           
-         padding: 10px;
-             border-radius: 6px;
-             font-weight: 900;
-          
-            
-     }
-     .syllabus-card button:hover{
-         cursor: pointer;
-     }
-        @media (max-width: 700px) {
-
-            .course-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .semester-header {
-                padding: 55px 20px;
-            }
-
-        }
-        
-
-
+      }
     </style>
+  </head>
 
-</head>
+  <body>
+    <!-- NAVBAR -->
 
-
-<body>
-
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-    <div class="nav-container">
-
+    <nav class="navbar">
+      <div class="nav-container">
         <a href="../../index.html" class="logo">
+          <span>📚</span>
 
-            <span>📚</span>
-
-            Study Material
-
+          Study Material
         </a>
 
         <div class="nav-links">
+          <a href="../../index.html"> Home </a>
 
-            <a href="../../index.html">
-                Home
-            </a>
-
-            <a href="../../index.html#semesters">
-                Semesters
-            </a>
-             <a href="semester5.html">
-                Subjects
-            </a>
-
+          <a href="../../index.html#semesters"> Semesters </a>
+          <a href="semester5.html"> Subjects </a>
         </div>
+      </div>
+    </nav>
 
-    </div>
+    <!-- HEADER -->
 
-</nav>
+    <header class="semester-header">
+      <a href="../../index.html" class="back"> ← Back to Semesters </a>
 
+      <h1>Semester 05</h1>
 
+      <p>B.Tech Computer Engineering</p>
 
-<!-- HEADER -->
+      <a href="third-year-cse-syllabus.PDF" class="syllabus-card">
+        <button>View Syllabus 👀</button>
+      </a>
+      <a
+        href="third-year-cse-syllabus.PDF"
+        download="Syllabus-3rd-Yr"
+        class="syllabus-card"
+      >
+        <button>Download Syllabus 📥</button>
+      </a>
+    </header>
 
-<header class="semester-header">
+    <main>
+      <!-- SUBJECTS -->
 
-    <a href="../../index.html"
-       class="back">
+      <section class="course-section">
+        <div class="container">
+          <div class="course-title">
+            <span> SEMESTER 05 </span>
 
-        ← Back to Semesters
+            <h2>📚 Subjects</h2>
 
-    </a>
+            <p>Core subjects and elective courses</p>
+          </div>
 
-    <h1>
-        Semester 05
-    </h1>
-
-    <p>
-        B.Tech Computer Engineering
-    </p>
-
-    <a href="third-year-cse-syllabus.PDF" 
-       class="syllabus-card">
-    <button>View Syllabus 👀</button>
-    </a>    
-    <a href="third-year-cse-syllabus.PDF" download="Syllabus-3rd-Yr"
-       class="syllabus-card">
-    <button>Download Syllabus 📥</button>
-    </a>          
-</header>
-
-
-
-<main>
-
-
-<!-- SUBJECTS -->
-
-<section class="course-section">
-
-    <div class="container">
-
-        <div class="course-title">
-
-            <span>
-                SEMESTER 05
-            </span>
-
-            <h2>
-                📚 Subjects
-            </h2>
-            
-            <p>
-                Core subjects and elective courses
-            </p>
-            
-            
-        </div>
-        
-
-        <div class="course-grid">
-
-
+          <div class="course-grid">
             <!-- MACHINE LEARNING -->
-              <!-- MACHINE LEARNING -->
+            <!-- MACHINE LEARNING -->
 
-            <a href="theory/ml.html"
-               class="course-card">
+            <a href="theory/ml.html" class="course-card">
+              <div class="course-icon">🤖</div>
 
-                <div class="course-icon">
-                    🤖
-                </div>
+              <div>
+                <h3>Machine Learning (ML)</h3>
 
-                <div>
+                <p>PCC1 • 26AF1245PC501</p>
+              </div>
 
-                    <h3>
-                        Machine Learning (ML)
-                    </h3>
-
-                    <p>
-                        PCC1 • 26AF1245PC501
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
 
             <!-- TOC -->
 
-            <a href="theory/toc.html"
-               class="course-card">
+            <a href="theory/toc.html" class="course-card">
+              <div class="course-icon">🧮</div>
 
-                <div class="course-icon">
-                    🧮
-                </div>
+              <div>
+                <h3>Theory of Computations (TOC)</h3>
 
-                <div>
+                <p>PCC2 • 26AF1245PC502</p>
+              </div>
 
-                    <h3>
-                        Theory of Computations (TOC)
-                    </h3>
-
-                    <p>
-                        PCC2 • 26AF1245PC502
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
 
             <!-- OS -->
 
-            <a href="theory/os.html"
-               class="course-card">
+            <a href="theory/os.html" class="course-card">
+              <div class="course-icon">💻</div>
 
-                <div class="course-icon">
-                    💻
-                </div>
+              <div>
+                <h3>Operating Systems (OS)</h3>
 
-                <div>
+                <p>PCC3 • 26AF1245PC503</p>
+              </div>
 
-                    <h3>
-                        Operating Systems (OS)
-                    </h3>
-
-                    <p>
-                        PCC3 • 26AF1245PC503
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
 
             <!-- DBMS -->
 
-            <a href="theory/dbms.html"
-               class="course-card">
+            <a href="theory/dbms.html" class="course-card">
+              <div class="course-icon">🗄️</div>
 
-                <div class="course-icon">
-                    🗄️
-                </div>
+              <div>
+                <h3>Database Management Systems (DBMS)</h3>
 
-                <div>
+                <p>PCC4 • 26AF1245PC504</p>
+              </div>
 
-                    <h3>
-                        Database Management Systems (DBMS)
-                    </h3>
-
-                    <p>
-                        PCC4 • 26AF1245PC504
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
 
             <!-- OPEN ELECTIVE -->
 
-            <a href="theory/law.html"
-               class="course-card">
+            <a href="theory/law.html" class="course-card">
+              <div class="course-icon">📖</div>
 
-                <div class="course-icon">
-                    📖
-                </div>
+              <div>
+                <h3>Open Elective (LAW)</h3>
 
-                <div>
+                <p>PEC • Open Elective Bucket</p>
+              </div>
 
-                    <h3>
-                        Open Elective (LAW)
-                    </h3>
-
-                    <p>
-                        PEC • Open Elective Bucket
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
 
             <!-- MDM -->
 
-            <a href="theory/dsp.html"
-               class="course-card">
+            <a href="theory/dsp.html" class="course-card">
+              <div class="course-icon">🌐</div>
 
-                <div class="course-icon">
-                    🌐
-                </div>
+              <div>
+                <h3>Multi-Disciplinary Minor (DSP)</h3>
 
-                <div>
+                <p>MDM Bucket</p>
+              </div>
 
-                    <h3>
-                        Multi-Disciplinary Minor (DSP)
-                    </h3>
-
-                    <p>
-                        MDM Bucket
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
 
             <!-- PROGRAM ELECTIVE -->
 
-            <a href="theory/cg.html"
-               class="course-card">
+            <a href="theory/cg.html" class="course-card">
+              <div class="course-icon">🖥️</div>
 
-                <div class="course-icon">
-                    🖥️
-                </div>
+              <div>
+                <h3>Program Elective (Computer Graphics)</h3>
 
-                <div>
+                <p>Computer Graphics / Introduction to Quantum Technologies</p>
+              </div>
 
-                    <h3>
-                        Program Elective (Computer Graphics)
-                    </h3>
-
-                    <p>
-                        Computer Graphics /
-                        Introduction to Quantum Technologies
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
-
+          </div>
         </div>
+      </section>
 
-    </div>
+      <!-- PRACTICALS -->
 
-</section>
+      <section class="practical-section">
+        <div class="container">
+          <div class="course-title">
+            <span> LABORATORY </span>
 
+            <h2>🧪 Practicals</h2>
 
+            <p>Semester 5 laboratory courses</p>
+          </div>
 
-<!-- PRACTICALS -->
-
-<section class="practical-section">
-
-    <div class="container">
-
-        <div class="course-title">
-
-            <span>
-                LABORATORY
-            </span>
-
-            <h2>
-                🧪 Practicals
-            </h2>
-
-            <p>
-                Semester 5 laboratory courses
-            </p>
-
-        </div>
-
-
-        <div class="course-grid">
-
-
+          <div class="course-grid">
             <!-- ML LAB -->
 
-            <a href="#"
-               class="course-card practical-card">
+            <a href="#" class="course-card practical-card">
+              <div class="course-icon">🤖</div>
 
-                <div class="course-icon">
-                    🤖
-                </div>
+              <div>
+                <h3>Machine Learning Laboratory</h3>
 
-                <div>
+                <p>26AF1245PCL508</p>
+              </div>
 
-                    <h3>
-                        Machine Learning Laboratory
-                    </h3>
-
-                    <p>
-                        26AF1245PCL508
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
 
-<div class="card">
-
-    
-
-</div>
+            <div class="card"></div>
             <!-- OS LAB -->
 
-            <a href="#"
-               class="course-card practical-card">
+            <a href="#" class="course-card practical-card">
+              <div class="course-icon">⚙️</div>
 
-                <div class="course-icon">
-                    ⚙️
-                </div>
+              <div>
+                <h3>Operating System Laboratory</h3>
 
-                <div>
+                <p>26AF1245PCL509</p>
+              </div>
 
-                    <h3>
-                        Operating System Laboratory
-                    </h3>
-
-                    <p>
-                        26AF1245PCL509
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
 
             <!-- DBMS LAB -->
 
-            <a href="#"
-               class="course-card practical-card">
+            <a href="#" class="course-card practical-card">
+              <div class="course-icon">🗄️</div>
 
-                <div class="course-icon">
-                    🗄️
-                </div>
+              <div>
+                <h3>Database Management System Laboratory</h3>
 
-                <div>
+                <p>26AF1245PCL510</p>
+              </div>
 
-                    <h3>
-                        Database Management System Laboratory
-                    </h3>
-
-                    <p>
-                        26AF1245PCL510
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
-
+          </div>
         </div>
+      </section>
 
-    </div>
+      <!-- SEMINAR -->
 
-</section>
+      <section class="other-section">
+        <div class="container">
+          <div class="course-title">
+            <span> AEC </span>
 
+            <h2>🎤 Seminar</h2>
 
+            <p>Seminar course for Semester 5</p>
+          </div>
 
-<!-- SEMINAR -->
+          <div class="course-grid">
+            <a href="#" class="course-card">
+              <div class="course-icon">🎤</div>
 
-<section class="other-section">
+              <div>
+                <h3>Seminar</h3>
 
-    <div class="container">
+                <p>26AF1245AE511</p>
+              </div>
 
-        <div class="course-title">
-
-            <span>
-                AEC
-            </span>
-
-            <h2>
-                🎤 Seminar
-            </h2>
-
-            <p>
-                Seminar course for Semester 5
-            </p>
-
-        </div>
-
-
-        <div class="course-grid">
-
-            <a href="#"
-               class="course-card">
-
-                <div class="course-icon">
-                    🎤
-                </div>
-
-                <div>
-
-                    <h3>
-                        Seminar
-                    </h3>
-
-                    <p>
-                        26AF1245AE511
-                    </p>
-
-                </div>
-
-                <span class="course-arrow">
-                    →
-                </span>
-
+              <span class="course-arrow"> → </span>
             </a>
-
+          </div>
         </div>
+      </section>
+    </main>
 
-    </div>
+    <!-- FOOTER -->
 
-</section>
-
-
-</main>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="footer-content">
-
+    <footer>
+      <div class="footer-content">
         <div>
+          <strong> 📚 StudyMaterial </strong>
 
-            <strong>
-                📚 StudyMaterial
-            </strong>
-
-            <p>
-                A helping hand for students 🧡
-            </p>
-
+          <p>A helping hand for students 🧡</p>
         </div>
 
         <div>
-
-            <p>
-                B.Tech Computer Engineering
-            </p>
-
+          <p>B.Tech Computer Engineering</p>
         </div>
+      </div>
 
-    </div>
-
-    <div class="copyright">
-
-        © 2026 StudyMaterial
-
-    </div>
-
-</footer>
-
-
-</body>
-
+      <div class="copyright">© 2026 StudyMaterial</div>
+    </footer>
+  </body>
 </html>

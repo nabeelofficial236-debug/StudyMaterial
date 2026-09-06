@@ -1,14 +1,376 @@
-<!doctype html>
-<html>
-  <head>
-    <!-- Redirects immediately (0 seconds) to the specified URL -->
-    <link rel="icon" href="../../assets/favicon.ico" />
-    <meta http-equiv="refresh" content="0; url=../../coming-soon.html" />
-  </head>
-  <body>
-    <p>
-      If you are not redirected automatically, follow this
-      <a href="../../coming-soon.html">link</a>.
-    </p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Semester 3 | Computer Engineering</title>
+
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            📚 Study Material
+        </div>
+
+        <a href="../index.html" class="back-btn">
+            ← Home
+        </a>
+
+    </nav>
+
+
+    <!-- HEADER -->
+    <section class="hero">
+
+        <h1>Computer Engineering</h1>
+
+        <p>Semester 3 Study Material</p>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search subject..."
+            onkeyup="searchSubjects()"
+        >
+
+    </div>
+
+
+    <main class="container">
+
+
+        <!-- ==================== -->
+        <!-- THEORY SUBJECTS -->
+        <!-- ==================== -->
+
+        <h2 class="section-title">
+            📖 Semester 3 Theory Subjects
+        </h2>
+
+
+        <div class="card-grid" id="theoryList">
+
+
+            <!-- 1. Engineering Mathematics III -->
+
+            <div class="card">
+
+                <div class="card-icon">📐</div>
+
+                <h3>Engineering Mathematics – III</h3>
+
+                <p>
+                    Notes, syllabus, important questions and study material.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 2. Data Structures -->
+
+            <div class="card">
+
+                <div class="card-icon">🌳</div>
+
+                <h3>Data Structures</h3>
+
+                <p>
+                    Data structures, algorithms, notes and study material.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 3. Discrete Mathematics -->
+
+            <div class="card">
+
+                <div class="card-icon">🔢</div>
+
+                <h3>Discrete Mathematics</h3>
+
+                <p>
+                    Discrete mathematics notes and important questions.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 4. Object Oriented Programming -->
+
+            <div class="card">
+
+                <div class="card-icon">💻</div>
+
+                <h3>Object-Oriented Programming</h3>
+
+                <p>
+                    OOP concepts, programs and study material.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 5. Open Elective I -->
+
+            <div class="card">
+
+                <div class="card-icon">📚</div>
+
+                <h3>Open Elective – I</h3>
+
+                <p>
+                    Study material and resources for Open Elective.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 6. Multi Disciplinary Minor -->
+
+            <div class="card">
+
+                <div class="card-icon">🎓</div>
+
+                <h3>Multi-Disciplinary Minor</h3>
+
+                <p>
+                    Study material and resources for the minor subject.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 7. Digital Electronics -->
+
+            <div class="card">
+
+                <div class="card-icon">⚡</div>
+
+                <h3>Digital Electronics</h3>
+
+                <p>
+                    Digital logic, circuits and electronics study material.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 8. Life of Chhatrapati Shivaji Maharaj -->
+
+            <div class="card">
+
+                <div class="card-icon">🏰</div>
+
+                <h3>Life of Chhatrapati Shivaji Maharaj</h3>
+
+                <p>
+                    Notes and study material.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+            <!-- 9. Universal Human Values II -->
+
+            <div class="card">
+
+                <div class="card-icon">🧠</div>
+
+                <h3>Universal Human Values – II</h3>
+
+                <p>
+                    Notes, important questions and study material.
+                </p>
+
+                <a href="#" class="btn">
+                    Open Subject
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ==================== -->
+        <!-- PRACTICAL SUBJECTS -->
+        <!-- ==================== -->
+
+        <h2 class="section-title practical-heading">
+            🧪 Semester 3 Practical Subjects
+        </h2>
+
+
+        <div class="card-grid">
+
+
+            <!-- 1. Data Structures Laboratory -->
+
+            <div class="card">
+
+                <div class="card-icon">🌳</div>
+
+                <h3>Data Structures Laboratory</h3>
+
+                <p>
+                    Practical programs, experiments and PDFs.
+                </p>
+
+                <a
+                    href="semester3/data-structures-lab/index.html"
+                    class="btn"
+                >
+                    Open Laboratory
+                </a>
+
+            </div>
+
+
+            <!-- 2. OOP Java Laboratory -->
+
+            <div class="card">
+
+                <div class="card-icon">☕</div>
+
+                <h3>
+                    Object-Oriented Programming in Java Laboratory
+                </h3>
+
+                <p>
+                    Java practical programs, experiments and PDFs.
+                </p>
+
+                <a
+                    href="semester3/oop-java-lab/index.html"
+                    class="btn"
+                >
+                    Open Laboratory
+                </a>
+
+            </div>
+
+
+            <!-- 3. Digital Electronics Laboratory -->
+
+            <div class="card">
+
+                <div class="card-icon">🔌</div>
+
+                <h3>Digital Electronics Laboratory</h3>
+
+                <p>
+                    Digital electronics practicals and experiments.
+                </p>
+
+                <a
+                    href="semester3/digital-electronics-lab/index.html"
+                    class="btn"
+                >
+                    Open Laboratory
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Study Material • Computer Engineering
+        </p>
+
+    </footer>
+
+
+    <!-- SEARCH SCRIPT -->
+
+    <script>
+
+        function searchSubjects() {
+
+            let input =
+                document.getElementById("search")
+                .value
+                .toLowerCase()
+                .trim();
+
+            let cards =
+                document.getElementsByClassName("card");
+
+            for (let i = 0; i < cards.length; i++) {
+
+                let text =
+                    cards[i].innerText.toLowerCase();
+
+                if (text.includes(input)) {
+
+                    cards[i].style.display = "block";
+
+                } else {
+
+                    cards[i].style.display = "none";
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
 </html>

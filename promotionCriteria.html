@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eligibility Calculator | StudyMaterial</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #171735;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .topbar {
+            height: 70px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #1e1b4b;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .topbar nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .topbar nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .topbar nav a:hover {
+            color: #4f46e5;
+        }
+
+
+        /* =========================
+           MAIN LAYOUT
+        ========================= */
+
+        .page {
+            max-width: 1400px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 40% 60%;
+
+            min-height: calc(100vh - 70px);
+        }
+
+
+        /* =========================
+           OFFICIAL CRITERIA
+        ========================= */
+
+        .criteria-side {
+            background: #eef2ff;
+
+            padding: 40px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .criteria-side h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+            color: #1e1b4b;
+        }
+
+        .criteria-side p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .criteria-image {
+            width: 100%;
+            max-width: 480px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+            display: block;
+        }
+
+
+        /* =========================
+           CALCULATOR
+        ========================= */
+
+        .calculator-side {
+            padding: 45px 7%;
+
+            background: white;
+        }
+
+        .calculator-heading {
+            margin-bottom: 35px;
+        }
+
+        .calculator-heading span {
+            display: inline-block;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+
+            color: #4f46e5;
+
+            margin-bottom: 8px;
+        }
+
+        .calculator-heading h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .calculator-heading p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FORM SECTIONS
+        ========================= */
+
+        .form-section {
+            margin-bottom: 28px;
+        }
+
+        .form-section label {
+            display: block;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        select,
+        input {
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            background: white;
+
+            outline: none;
+        }
+
+        select:focus,
+        input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+
+        /* =========================
+           CRITERIA SUMMARY
+        ========================= */
+
+        .criteria-summary {
+            display: none;
+
+            padding: 20px;
+
+            margin-bottom: 28px;
+
+            background: #f5f3ff;
+
+            border: 1px solid #ddd6fe;
+
+            border-radius: 12px;
+        }
+
+        .criteria-summary.show {
+            display: block;
+        }
+
+        .criteria-summary h3 {
+            margin-bottom: 15px;
+            color: #312e81;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .summary-item {
+            background: white;
+            padding: 14px;
+            border-radius: 8px;
+        }
+
+        .summary-item small {
+            display: block;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .summary-item strong {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           SEMESTER INPUTS
+        ========================= */
+
+        .semester-inputs {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 15px;
+        }
+
+        .semester-input {
+            padding: 15px;
+
+            background: #f9fafb;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+        }
+
+        .semester-input label {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+
+        /* =========================
+           CALCULATE BUTTON
+        ========================= */
+
+        .calculate-btn {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #4f46e5;
+            color: white;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            margin-top: 10px;
+        }
+
+        .calculate-btn:hover {
+            background: #4338ca;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================= */
+
+        .result {
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.qualified {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+        }
+
+        .result.not-qualified {
+            background: #fff1f2;
+            border: 1px solid #fecdd3;
+        }
+
+        .result-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .result h2 {
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .percentage {
+            font-size: 32px;
+
+            font-weight: 900;
+
+            margin: 10px 0;
+        }
+
+
+        /* =========================
+           VIEW OFFICIAL BUTTON
+        ========================= */
+
+        .mobile-criteria-btn {
+            display: none;
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-top: 10px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #312e81;
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+.credit-limit {
+    display: block;
+    margin-top: 6px;
+    color: #777;
+    font-size: 12px;
+}
+
+.credit-input-message {
+    display: block;
+    margin-top: 8px;
+    color: #777;
+    font-size: 13px;
+}
+
+input:disabled {
+    background: #f1f1f1;
+    color: #888;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .topbar {
+                padding: 0 20px;
+            }
+
+            .topbar nav {
+                display: none;
+            }
+
+            .page {
+                display: block;
+            }
+
+            /* Hide official image completely */
+            .criteria-side {
+                display: none;
+            }
+
+            .calculator-side {
+                padding: 30px 20px;
+            }
+
+            .calculator-heading h1 {
+                font-size: 29px;
+            }
+
+            .mobile-criteria-btn {
+                display: block;
+            }
+
+            .semester-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        
+    </style>
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <a href="../../index.html" class="logo">
+            📚 StudyMaterial
+        </a>
+
+        <nav>
+            <a href="../../index.html">Home</a>
+            <a href="../../index.html#semesters">Semesters</a>
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="page">
+
+
+        <!-- =========================
+             LEFT : OFFICIAL CRITERIA
+        ========================== -->
+
+        <aside class="criteria-side">
+
+            <h2>Official Promotion Criteria</h2>
+
+            <p>
+                Academic Section Notice<br>
+                Date: 26-11-2025
+            </p>
+
+            <img
+                src="assets/officialEligibility.jpg"
+                alt="Official DBATU Promotion Criteria"
+                class="criteria-image"
+            >
+
+        </aside>
+
+
+        <!-- =========================
+             RIGHT : CALCULATOR
+        ========================== -->
+
+        <section class="calculator-side">
+
+            <div class="calculator-heading">
+
+                <span>DBATU • B.TECH</span>
+
+                <h1>
+                    Eligibility Calculator
+                </h1>
+
+                <p>
+                    Check whether you have enough credits to
+                    qualify for promotion to the next academic year.
+                </p>
+
+                <button
+                    class="mobile-criteria-btn"
+                    id="viewCriteriaBtn"
+                    type="button"
+                >
+                    📄 View Official Promotion Criteria
+                </button>
+
+            </div>
+
+
+            <!-- ADMISSION TYPE -->
+
+            <div class="form-section">
+
+                <label for="admissionType">
+                    1. Select your admission type
+                </label>
+
+                <select id="admissionType">
+
+                    <option value="">
+                        Select admission type
+                    </option>
+
+                    <option value="regular">
+                        Regular Student (FY Admitted)
+                    </option>
+
+                    <option value="dsy">
+                        DSY Student (Lateral Entry)
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PROMOTION STAGE -->
+
+            <div class="form-section">
+
+                <label for="promotionStage">
+                    2. Select your promotion
+                </label>
+
+                <select id="promotionStage" disabled>
+
+                    <option value="">
+                        First select admission type
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- CRITERIA SUMMARY -->
+
+            <div
+                class="criteria-summary"
+                id="criteriaSummary"
+            >
+
+                <h3>
+                    📊 Promotion Requirement
+                </h3>
+
+                <div class="summary-grid">
+
+                    <div class="summary-item">
+
+                        <small>
+                            Promotion
+                        </small>
+
+                        <strong id="summaryPromotion">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <small>
+                            Required Credit %
+                        </small>
+
+                        <strong id="summaryPercentage">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <small>
+                            Semesters Considered
+                        </small>
+
+                        <strong id="summarySemesters">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <small>
+                            Total Applicable Credits
+                        </small>
+
+                        <strong id="summaryTotal">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CREDIT INPUT -->
+
+            <div
+                class="form-section"
+                id="creditSection"
+                style="display:none;"
+            >
+
+                <label>
+                    3. Enter your credits earned
+                </label>
+
+                <p style="color:#666; margin-bottom:15px;">
+                    Enter the credits you have passed/cleared.
+                    Failed subjects should not be included.
+                </p>
+
+
+                <div
+                    class="semester-inputs"
+                    id="semesterInputs"
+                >
+                </div>
+
+
+                <div style="margin-top:15px;">
+
+                    <label>
+                        Or enter total credits earned
+                    </label>
+
+                    <input
+    type="number"
+    id="totalEarned"
+    min="0"
+    step="1"
+    placeholder="Example: 70"
+>
+
+</div>
+</div>
+<small id="creditInputMessage" class="credit-input-message">
+    Enter either semester-wise credits OR total credits earned.
+</small>
+
+
+            <!-- CALCULATE -->
+
+            <button
+                class="calculate-btn"
+                id="calculateBtn"
+                type="button"
+                style="display:none;"
+            >
+                Calculate Eligibility
+            </button>
+
+
+            <!-- RESULT -->
+
+            <div
+                class="result"
+                id="result"
+            >
+
+                <div
+                    class="result-icon"
+                    id="resultIcon"
+                >
+                </div>
+
+                <h2 id="resultTitle">
+                    —
+                </h2>
+
+                <div
+                    class="percentage"
+                    id="resultPercentage"
+                >
+                    —
+                </div>
+
+                <p id="resultText">
+                    —
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /* =========================
+           CSE CREDIT DATA
+        ========================= */
+
+        const semesterCredits = {
+    1: 23,
+    2: 21,
+    3: 24,
+    4: 19,
+    5: 23,
+    6: 23,
+    7: 22,
+    8: 17
+};
+
+
+        /* =========================
+           PROMOTION RULES
+        ========================= */
+
+        const promotionRules = {
+
+            regular: {
+
+                "1-2": {
+                    label: "1st → 2nd Year",
+                    semesters: [1, 2],
+                    required: 60
+                },
+
+                "2-3": {
+                    label: "2nd → 3rd Year",
+                    semesters: [1, 2, 3, 4],
+                    required: 80
+                },
+
+                "3-4": {
+                    label: "3rd → 4th Year",
+                    semesters: [1, 2, 3, 4, 5, 6],
+                    required: 86
+                }
+            },
+
+            dsy: {
+
+                "2-3": {
+                    label: "2nd → 3rd Year",
+                    semesters: [3, 4],
+                    required: 60
+                },
+
+                "3-4": {
+                    label: "3rd → 4th Year",
+                    semesters: [3, 4, 5, 6],
+                    required: 80
+                }
+            }
+        };
+
+
+        /* =========================
+           ELEMENTS
+        ========================= */
+
+        const admissionType =
+            document.getElementById("admissionType");
+
+        const promotionStage =
+            document.getElementById("promotionStage");
+
+        const criteriaSummary =
+            document.getElementById("criteriaSummary");
+
+        const creditSection =
+            document.getElementById("creditSection");
+
+        const semesterInputs =
+            document.getElementById("semesterInputs");
+
+        const calculateBtn =
+            document.getElementById("calculateBtn");
+
+        const result =
+            document.getElementById("result");
+
+        const totalEarned =
+            document.getElementById("totalEarned");
+
+
+        /* =========================
+           ADMISSION TYPE CHANGE
+        ========================= */
+
+        admissionType.addEventListener("change", function () {
+
+            const type = this.value;
+
+            promotionStage.innerHTML = "";
+
+            criteriaSummary.classList.remove("show");
+
+            creditSection.style.display = "none";
+
+            calculateBtn.style.display = "none";
+
+            result.classList.remove("show");
+
+            if (!type) {
+
+                promotionStage.disabled = true;
+
+                promotionStage.innerHTML = `
+                    <option>
+                        First select admission type
+                    </option>
+                `;
+
+                return;
+            }
+
+
+            promotionStage.disabled = false;
+
+            promotionStage.innerHTML = `
+                <option value="">
+                    Select promotion stage
+                </option>
+            `;
+
+
+            const rules = promotionRules[type];
+
+
+            Object.keys(rules).forEach(function (key) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = key;
+
+                option.textContent =
+                    rules[key].label;
+
+                promotionStage.appendChild(option);
+
+            });
+
+        });
+
+
+        /* =========================
+           PROMOTION CHANGE
+        ========================= */
+
+        promotionStage.addEventListener("change", function () {
+
+            const type =
+                admissionType.value;
+
+            const stage =
+                this.value;
+
+            result.classList.remove("show");
+
+            if (!type || !stage) {
+
+                criteriaSummary.classList.remove("show");
+
+                creditSection.style.display = "none";
+
+                calculateBtn.style.display = "none";
+
+                return;
+            }
+
+
+            const rule =
+                promotionRules[type][stage];
+
+
+            /* Show summary */
+
+            document.getElementById(
+                "summaryPromotion"
+            ).textContent = rule.label;
+
+
+            document.getElementById(
+                "summaryPercentage"
+            ).textContent = rule.required + "%";
+
+
+            document.getElementById(
+                "summarySemesters"
+            ).textContent =
+                rule.semesters
+                    .map(s => "Sem " + s)
+                    .join(" + ");
+
+
+            /*
+             * Calculate total known credits
+             */
+
+            let total = 0;
+
+rule.semesters.forEach(function (sem) {
+    total += semesterCredits[sem];
+});
+
+document.getElementById("summaryTotal").textContent =
+    total + " credits";
+
+            let missing = [];
+
+
+            rule.semesters.forEach(function (sem) {
+
+                if (semesterCredits[sem] !== null) {
+
+                    total += semesterCredits[sem];
+
+                } else {
+
+                    missing.push(sem);
+
+                }
+
+            });
+
+
+            if (missing.length === 0) {
+
+                document.getElementById(
+                    "summaryTotal"
+                ).textContent = total + " credits";
+
+            } else {
+
+                document.getElementById(
+                    "summaryTotal"
+                ).textContent =
+                    "Sem " +
+                    missing.join(" & ") +
+                    " required";
+
+            }
+
+
+            criteriaSummary.classList.add("show");
+
+
+            /* Create semester inputs */
+
+            createSemesterInputs(rule.semesters);
+
+
+            creditSection.style.display = "block";
+
+            calculateBtn.style.display = "block";
+
+        });
+
+
+        /* =========================
+           CREATE SEMESTER INPUTS
+        ========================= */
+
+       function createSemesterInputs(semesters) {
+
+    semesterInputs.innerHTML = "";
+
+    semesters.forEach(function (sem) {
+
+        const wrapper = document.createElement("div");
+
+        wrapper.className = "semester-input";
+
+        const knownCredits = semesterCredits[sem];
+
+        wrapper.innerHTML = `
+            <label for="sem${sem}">
+                Semester ${sem}
+                ${
+                    knownCredits !== null
+                    ? `(${knownCredits} total credits)`
+                    : "(total credits not specified)"
+                }
+            </label>
+
+            <input
+                type="number"
+                id="sem${sem}"
+                class="earned-credit"
+                data-semester="${sem}"
+                min="0"
+                ${
+                    knownCredits !== null
+                    ? `max="${knownCredits}"`
+                    : ""
+                }
+                step="1"
+                placeholder="Credits earned"
+            >
+
+            ${
+                knownCredits !== null
+                ? `<small class="credit-limit">
+                        Maximum: ${knownCredits} credits
+                   </small>`
+                : ""
+            }
+        `;
+
+        semesterInputs.appendChild(wrapper);
+    });
+
+
+    /*
+     * Add listeners to individual semester inputs
+     */
+
+    const individualInputs =
+        document.querySelectorAll(".earned-credit");
+
+    individualInputs.forEach(function (input) {
+
+        input.addEventListener("input", function () {
+
+            const max =
+                parseFloat(this.max);
+
+            let value =
+                parseFloat(this.value);
+
+
+            /* Prevent negative values */
+
+            if (value < 0) {
+                this.value = 0;
+                value = 0;
+            }
+
+
+            /* Prevent values above semester total */
+
+            if (!isNaN(max) && value > max) {
+
+                this.value = max;
+
+            }
+
+
+            updateCreditInputState();
+
+        });
+
+    });
+
+}
+
+
+function updateCreditInputState() {
+
+    const individualInputs =
+        document.querySelectorAll(".earned-credit");
+
+    const totalInput =
+        document.getElementById("totalEarned");
+
+    const message =
+        document.getElementById("creditInputMessage");
+
+
+    /*
+     * Check whether at least one
+     * semester field has a value.
+     */
+
+    let hasIndividualValue = false;
+
+    individualInputs.forEach(function (input) {
+
+        if (input.value !== "") {
+            hasIndividualValue = true;
+        }
+
+    });
+
+
+    /*
+     * If individual semester values
+     * are being entered:
+     *
+     * Disable total input
+     * Calculate total automatically
+     */
+
+    if (hasIndividualValue) {
+
+        let total = 0;
+
+        individualInputs.forEach(function (input) {
+
+            if (input.value !== "") {
+
+                total += parseFloat(input.value) || 0;
+
+            }
+
+        });
+
+
+        totalInput.value = total;
+
+        totalInput.disabled = true;
+
+        message.textContent =
+            "Total credits are calculated from your semester-wise entries.";
+
+    }
+
+    /*
+     * If no semester values exist,
+     * allow total input.
+     */
+
+    else {
+
+        totalInput.disabled = false;
+
+        totalInput.value = "";
+
+        message.textContent =
+            "Enter either semester-wise credits OR total credits earned.";
+
+    }
+
+}
+totalEarned.addEventListener("input", function () {
+
+    /*
+     * If user enters total credits,
+     * disable individual semester fields.
+     */
+
+    const individualInputs =
+        document.querySelectorAll(".earned-credit");
+
+
+    if (this.value !== "") {
+
+        individualInputs.forEach(function (input) {
+
+            input.disabled = true;
+
+        });
+
+        document.getElementById(
+            "creditInputMessage"
+        ).textContent =
+            "Using your total credits earned.";
+
+    }
+
+    else {
+
+        individualInputs.forEach(function (input) {
+
+            input.disabled = false;
+
+        });
+
+        document.getElementById(
+            "creditInputMessage"
+        ).textContent =
+            "Enter either semester-wise credits OR total credits earned.";
+
+    }
+
+});
+
+
+        /* =========================
+           CALCULATE
+        ========================= */
+
+        calculateBtn.addEventListener(
+            "click",
+            function () {
+
+                const type =
+                    admissionType.value;
+
+                const stage =
+                    promotionStage.value;
+
+                const rule =
+                    promotionRules[type][stage];
+
+
+                /*
+                 * Check if user entered
+                 * a total directly.
+                 */
+
+               let earned = 0;
+
+
+/*
+ * Determine which method is being used.
+ */
+
+const individualInputs =
+    document.querySelectorAll(".earned-credit");
+
+let hasIndividualValue = false;
+
+individualInputs.forEach(function (input) {
+
+    if (input.value !== "") {
+        hasIndividualValue = true;
+    }
+
+});
+
+
+/*
+ * METHOD 1:
+ * Semester-wise credits
+ *
+ * If ANY semester field contains
+ * a value, use ONLY those values.
+ */
+
+if (hasIndividualValue) {
+
+    individualInputs.forEach(function (input) {
+
+        if (input.value !== "") {
+
+            earned +=
+                parseFloat(input.value) || 0;
+
+        }
+
+    });
+
+}
+
+
+/*
+ * METHOD 2:
+ * Total credits
+ *
+ * Only use this if ALL semester
+ * fields are empty.
+ */
+
+else if (totalEarned.value !== "") {
+
+    earned =
+        parseFloat(totalEarned.value) || 0;
+
+}
+
+
+/*
+ * Nothing entered
+ */
+
+else {
+
+    alert(
+        "Please enter your earned credits either semester-wise or as a total."
+    );
+
+    return;
+
+}
+
+
+                /*
+                 * Calculate total applicable credits.
+                 */
+
+                let total = 0;
+
+                let missingCredits = false;
+
+
+                rule.semesters.forEach(
+                    function (sem) {
+
+                        if (
+                            semesterCredits[sem]
+                            !== null
+                        ) {
+
+                            total +=
+                                semesterCredits[sem];
+
+                        } else {
+
+                            /*
+                             * For Sem 5/6,
+                             * get total credits
+                             * from the user.
+                             */
+
+                            const input =
+                                document.getElementById(
+                                    "sem" + sem
+                                );
+
+
+                            /*
+                             * We need total credits
+                             * for that semester.
+                             *
+                             * Since the same input is
+                             * being used for earned
+                             * credits, ask user to
+                             * provide missing total
+                             * credits another way.
+                             */
+
+                            missingCredits = true;
+
+                        }
+
+                    }
+                );
+
+
+                /*
+                 * For stages involving Sem 5/6,
+                 * calculate using an additional
+                 * prompt.
+                 */
+
+                if (missingCredits) {
+
+                    const sem5Total =
+                        parseFloat(
+                            prompt(
+                                "Enter TOTAL credits for Semester 5:"
+                            )
+                        );
+
+                    const sem6Total =
+                        parseFloat(
+                            prompt(
+                                "Enter TOTAL credits for Semester 6:"
+                            )
+                        );
+
+
+                    if (
+                        isNaN(sem5Total) ||
+                        isNaN(sem6Total)
+                    ) {
+
+                        alert(
+                            "Please enter valid total credits for Sem 5 and Sem 6."
+                        );
+
+                        return;
+                    }
+
+
+                    if (
+                        rule.semesters.includes(5)
+                    ) {
+
+                        total += sem5Total;
+
+                    }
+
+
+                    if (
+                        rule.semesters.includes(6)
+                    ) {
+
+                        total += sem6Total;
+
+                    }
+
+                }
+
+
+                /*
+                 * Safety check
+                 */
+
+                if (earned < 0 || total <= 0) {
+
+                    alert(
+                        "Please enter valid credit values."
+                    );
+
+                    return;
+                }
+
+
+                if (earned > total) {
+
+                    alert(
+                        "Credits earned cannot be greater than total applicable credits."
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Final percentage
+                 */
+
+                const percentage = (earned / total) * 100;
+
+                
+                const required =
+                rule.required;
+                
+                const qualified = percentage >= required;
+
+               
+
+
+                /*
+                 * Display result
+                 */
+
+                result.classList.add("show");
+
+
+                result.classList.remove(
+                    "qualified",
+                    "not-qualified"
+                );
+
+
+                if (qualified) {
+
+                    result.classList.add(
+                        "qualified"
+                    );
+
+                    document.getElementById(
+                        "resultIcon"
+                    ).textContent = "✅";
+
+
+                    document.getElementById(
+                        "resultTitle"
+                    ).textContent =
+                        "You are eligible for promotion!";
+
+                } else {
+
+                    result.classList.add(
+                        "not-qualified"
+                    );
+
+                    document.getElementById(
+                        "resultIcon"
+                    ).textContent = "❌";
+
+
+                    document.getElementById(
+                        "resultTitle"
+                    ).textContent =
+                        "Not eligible for promotion yet";
+
+                }
+
+
+                document.getElementById(
+                    "resultPercentage"
+                ).textContent =
+                    percentage.toFixed(2) + "%";
+
+
+                document.getElementById(
+                    "resultText"
+                ).innerHTML = `
+
+                    You earned
+                    <strong>${earned}</strong>
+                    out of
+                    <strong>${total}</strong>
+                    applicable credits.
+
+                    <br><br>
+
+                    Required:
+                    <strong>${required}%</strong>
+
+                    <br>
+
+                    ${
+                        qualified
+                        ? "Your credit percentage meets the required criteria."
+                        : "Your credit percentage is below the required criteria."
+                    }
+
+                `;
+
+            }
+        );
+
+
+        /* =========================
+           MOBILE OFFICIAL IMAGE
+        ========================= */
+
+        document
+            .getElementById("viewCriteriaBtn")
+            .addEventListener("click", function () {
+
+                window.open(
+                    "assets/officialEligibility.jpg",
+                    "_blank"
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>

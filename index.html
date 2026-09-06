@@ -24,9 +24,331 @@
           <a href="#home">Home</a>
           <a href="#semesters">Semesters</a>
           <a href="#about">About</a>
+          <a href="promotionCriteria.html">Promotion Criteria</a>
+
         </div>
       </div>
     </nav>
+
+
+
+
+
+<!-- CUSTOM ALERT -->
+
+<div class="custom-alert" id="customAlert">
+    <div class="alert-box">
+
+        <button class="close-alert" id="closeAlert">&times;</button>
+
+        <h2>
+          🎓 *DBATU B.Tech Promotion Credit Calculation
+        </h2>
+       <div class="infographic-container">
+    <img src="assets/eligibility.jpg" 
+         alt="DBATU B.Tech Promotion Criteria"
+         class="infographic">
+</div>
+
+
+        <h3>
+           Do You Want to Check Your Eligibility Criteria ? 
+        </h3><br>
+
+        <a href="promotionCriteria.html">
+        <button class="alert-btn" id="alertBtn">
+           <strong>Click Here 🖱️</strong>
+        </button>
+        </a>
+
+    </div>
+</div>
+
+<!-- This Style & Script section is For Popup only, yaad Rakhe -->
+<style>
+    /* Dark background behind the popup */
+   .custom-alert {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    z-index: 9999;
+}
+
+    /* Popup box */
+   .alert-box {
+    position: relative;
+
+    width: min(90%, 600px);
+    max-height: 90vh;
+
+    padding: 35px;
+
+    background: white;
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    overflow-y: auto;
+
+    animation: popup 0.25s ease;
+}
+
+
+
+.infographic-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 25px auto;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+    background: #f5f5f5;
+}
+
+.infographic {
+    display: block;
+
+    width: 100%;
+    height: 50%;
+    height: auto;
+
+    border-radius: 12px;
+}
+
+/* 
+   MOBILE
+ */
+
+@media (max-width: 600px) {
+
+    .infographic-container {
+        margin: 20px 0;
+
+        /* Allow horizontal scrolling */
+        overflow-x: auto;
+
+        border-radius: 8px;
+    }
+
+    .infographic {
+        /*
+         * Don't shrink the infographic too much.
+         * This keeps the text readable.
+         */
+        
+        max-width: none;
+
+        height: auto;
+
+        border-radius: 8px;
+    }
+}
+
+
+    .alert-box h2 {
+        margin-bottom: 12px;
+
+        color: #1e1b4b;
+    }
+
+    .alert-box p {
+        color: #555;
+
+        line-height: 1.6;
+
+        margin-bottom: 25px;
+    }
+
+    /* Close button */
+    .close-alert {
+        position: absolute;
+
+        top: 10px;
+        right: 14px;
+
+        border: none;
+        background: none;
+
+        font-size: 28px;
+        color: #777;
+
+        cursor: pointer;
+
+        line-height: 1;
+    }
+
+    .close-alert:hover {
+        color: #111;
+    }
+
+    /* Main button */
+    .alert-btn {
+        border: none;
+
+        padding: 11px 25px;
+
+        background: #4f46e5;
+        color: white;
+
+        border-radius: 8px;
+
+        font-size: 15px;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    .alert-btn:hover {
+        background: #4338ca;
+    }
+
+    .promotion{
+      background-color: white;
+      color: #120d4b;
+      font-style: italic;
+      font-family: ' Verdana', sans-serif;
+      padding: 10px;
+      border-radius: 7px;
+      border-color: #4338ca;
+      border-style: dashed;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      margin-top: -30px;
+    }
+
+    .promotion a{
+      background-color: rgb(92, 64, 8);
+      color: white;
+      border-radius: 5px;
+      padding: 3px;
+    }
+
+    /* Popup animation */
+    @keyframes popup {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 500px) {
+        .alert-box {
+            width: 100%;
+            padding: 30px 22px;
+        }
+
+        .alert-icon {
+            width: 75px;
+            height: 75px;
+        }
+
+        .alert-box h2 {
+            font-size: 22px;
+        }
+
+        .alert-box p {
+            font-size: 14px;
+        }
+    }
+</style>
+
+
+<script>
+    const alertBox = document.getElementById("customAlert");
+    const closeAlert = document.getElementById("closeAlert");
+    const alertBtn = document.getElementById("alertBtn");
+
+    const POPUP_KEY = "promotionPopupLastShown";
+
+
+    // Check if popup has already been shown today
+    function shouldShowPopup() {
+
+        const lastShown =
+            localStorage.getItem(POPUP_KEY);
+
+        // Never shown before
+        if (!lastShown) {
+            return true;
+        }
+
+        const today =
+            new Date().toDateString();
+
+        // Already shown today
+        if (lastShown === today) {
+            return false;
+        }
+
+        // Different day
+        return true;
+    }
+
+
+    // Hide popup and remember today's date
+    function hideAlert() {
+
+        alertBox.style.display = "none";
+
+        localStorage.setItem(
+            POPUP_KEY,
+            new Date().toDateString()
+        );
+    }
+
+
+    // Close button
+    closeAlert.addEventListener(
+        "click",
+        hideAlert
+    );
+
+
+    // Check Eligibility button
+    alertBtn.addEventListener(
+        "click",
+        hideAlert
+    );
+
+
+    // Decide whether to show popup
+    if (shouldShowPopup()) {
+
+        // Optional: wait 1.5 seconds
+        setTimeout(function () {
+
+            alertBox.style.display = "flex";
+
+        }, 1500);
+
+    } else {
+
+        alertBox.style.display = "none";
+
+    }
+</script>
+
+<!-- This Style & Script section is For Popup only, yaad Rakhe -->
+
 
     <header class="hero" id="home">
       <div class="hero-content">
@@ -59,6 +381,9 @@
       <section class="section" id="semesters">
         <div class="section-heading">
           <div>
+            <div class="promotion">
+            <h3>Not Sure if You'll Enter Next Year or Not ? <br> Don't Worry Just <a href="promotionCriteria.html">Click Here</a> To Use Our Promotion Calculator</h3><br>
+</div>
             <span class="section-label"> COMPUTER ENGINEERING </span>
 
             <h2>Explore Your Semester</h2>

@@ -1,14 +1,204 @@
-<!doctype html>
-<html>
-  <head>
-    <!-- Redirects immediately (0 seconds) to the specified URL -->
-    <link rel="icon" href="../../assets/favicon.ico" />
-    <meta http-equiv="refresh" content="0; url=../../coming-soon.html" />
-  </head>
-  <body>
-    <p>
-      If you are not redirected automatically, follow this
-      <a href="../../coming-soon.html">link</a>.
-    </p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Semester 1 | Computer Engineering</title>
+
+<link rel="icon" href="../../assets/favicon.ico">
+<link rel="stylesheet" href="../../style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+📚 Study Material
+</div>
+
+<a href="../index.html" class="back-btn">
+← Home
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+<h1>Computer Engineering</h1>
+
+<p>Semester 1 Study Material</p>
+
+</section>
+
+
+<div class="search-container">
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Search subject..."
+onkeyup="searchSubjects()"
+>
+
+</div>
+
+
+<main class="container">
+
+<h2 class="section-title">
+📖 Semester 1 Theory Subjects
+</h2>
+
+
+<div class="card-grid">
+
+
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Engineering Mathematics – I</h3>
+<p>Notes, syllabus, important questions and study material.</p>
+<a href="theory/engineering-mathematics-1.html" class="btn">Open Subject</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">🧪</div>
+<h3>Engineering Chemistry</h3>
+<p>Notes, syllabus, important questions and study material.</p>
+<a href="theory/engineering-chemistry.html" class="btn">Open Subject</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">⚙️</div>
+<h3>Engineering Mechanics</h3>
+<p>Notes, syllabus, important questions and study material.</p>
+<a href="theory/engineering-mechanics.html" class="btn">Open Subject</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Programming for Problem Solving</h3>
+<p>Programming concepts, notes and study material.</p>
+<a href="theory/programming-for-problem-solving.html" class="btn">Open Subject</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">🔧</div>
+<h3>Workshop Practices</h3>
+<p>Workshop practices notes and study material.</p>
+<a href="theory/workshop-practices.html" class="btn">Open Subject</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">🗣️</div>
+<h3>Communication Skills</h3>
+<p>Communication skills notes and study material.</p>
+<a href="theory/communication-skills.html" class="btn">Open Subject</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">🧘</div>
+<h3>Yoga Education / NSS-I / NCC</h3>
+<p>Study material and resources.</p>
+<a href="theory/yoga-nss-ncc.html" class="btn">Open Subject</a>
+</div>
+
+
+</div>
+
+
+<h2 class="section-title practical-heading">
+🧪 Semester 1 Practical Subjects
+</h2>
+
+
+<div class="card-grid">
+
+
+<div class="card">
+<div class="card-icon">🧪</div>
+<h3>Engineering Chemistry Laboratory</h3>
+<p>Experiments, practical notes and study material.</p>
+<a href="Practicals/engineering-chemistry-lab/index.html" class="btn">Open Laboratory</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">⚙️</div>
+<h3>Engineering Mechanics Laboratory</h3>
+<p>Experiments, practical notes and study material.</p>
+<a href="Practicals/engineering-mechanics-lab/index.html" class="btn">Open Laboratory</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Programming for Problem Solving Laboratory</h3>
+<p>Programming practicals, programs and source code.</p>
+<a href="Practicals/programming-lab/index.html" class="btn">Open Laboratory</a>
+</div>
+
+
+<div class="card">
+<div class="card-icon">🗣️</div>
+<h3>Communication Skills Laboratory</h3>
+<p>Practical activities and study material.</p>
+<a href="Practicals/communication-skills-lab/index.html" class="btn">Open Laboratory</a>
+</div>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 Study Material • Computer Engineering
+</p>
+
+</footer>
+
+
+<script>
+
+function searchSubjects() {
+
+let input = document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+let cards = document.getElementsByClassName("card");
+
+for (let i = 0; i < cards.length; i++) {
+
+let text = cards[i].innerText.toLowerCase();
+
+if (text.includes(input)) {
+cards[i].style.display = "block";
+} else {
+cards[i].style.display = "none";
+}
+
+}
+
+}
+
+</script>
+
+</body>
+
 </html>

@@ -1,302 +1,538 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Semester 3 | Computer Engineering</title>
+  <title>Semester 3 | Computer Engineering</title>
 
-<link rel="icon" href="../../assets/favicon.ico">
-<link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../assets/favicon.ico">
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    .semester-header {
+      background: linear-gradient(135deg, #312e81, #4f46e5, #2563eb);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #e0e7ff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .semester-header h1 {
+      font-size: clamp(40px, 7vw, 65px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .semester-header p {
+      color: #dbeafe;
+      font-size: 17px;
+    }
+
+    .course-section {
+      padding: 60px 0;
+    }
+
+    .course-title {
+      margin-bottom: 25px;
+    }
+
+    .course-title span {
+      color: #4f46e5;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .course-title h2 {
+      font-size: 30px;
+      margin-top: 5px;
+    }
+
+    .course-title p {
+      color: #667085;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .course-card {
+      position: relative;
+      padding: 22px;
+      background: white;
+      border: 1px solid #e6e9f0;
+      border-radius: 18px;
+      text-decoration: none;
+      color: #172033;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: 0.25s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      border-color: #c7d2fe;
+      box-shadow: 0 15px 35px rgba(31, 41, 55, 0.1);
+    }
+
+    .course-icon {
+      width: 55px;
+      height: 55px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: #eef2ff;
+      border-radius: 15px;
+      font-size: 24px;
+    }
+
+    .course-card h3 {
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .course-card p {
+      color: #8a94a6;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .course-arrow {
+      margin-left: auto;
+      color: #98a2b3;
+      font-size: 22px;
+    }
+
+    .practical-section {
+      background: #f1f5ff;
+      padding: 60px 0;
+    }
+
+    .practical-card {
+      background: #172033;
+      color: white;
+    }
+
+    .practical-card p {
+      color: #aeb8c9;
+    }
+
+    .other-section {
+      padding: 60px 0;
+    }
+
+    @media (max-width: 700px) {
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .semester-header {
+        padding: 55px 20px;
+      }
+    }
+  </style>
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+  <!-- NAVBAR -->
 
-<nav class="navbar">
+  <nav class="navbar">
+    <div class="nav-container">
 
-<div class="logo">
-📚 Study Material
-</div>
+      <a href="../../index.html" class="logo">
+        <span>📚</span>
+        Study Material
+      </a>
 
-<a href="../index.html" class="back-btn">
-← Home
-</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#semesters">Semesters</a>
+        <a href="semester3.html">Subjects</a>
+      </div>
 
-</nav>
+    </div>
+  </nav>
 
 
-<!-- HEADER -->
+  <!-- HEADER -->
 
-<section class="hero">
+  <header class="semester-header">
 
-<h1>Computer Engineering</h1>
+    <a href="../../index.html" class="back">
+      ← Back to Semesters
+    </a>
 
-<p>Semester 3 Study Material</p>
+    <h1>Semester 03</h1>
 
-</section>
+    <p>B.Tech Computer Engineering</p>
 
+  </header>
 
-<!-- SEARCH -->
 
-<div class="search-container">
+  <main>
 
-<input
-type="text"
-id="search"
-placeholder="🔍 Search subject..."
-onkeyup="searchSubjects()"
->
+    <!-- THEORY SUBJECTS -->
 
-</div>
+    <section class="course-section">
 
+      <div class="container">
 
-<main class="container">
+        <div class="course-title">
 
+          <span>SEMESTER 03</span>
 
-<!-- ==================== -->
-<!-- THEORY SUBJECTS -->
-<!-- ==================== -->
+          <h2>📚 Theory Subjects</h2>
 
-<h2 class="section-title">
-📖 Semester 3 Theory Subjects
-</h2>
+          <p>Core subjects and elective courses</p>
 
+        </div>
 
-<div class="card-grid" id="theoryList">
 
+        <div class="course-grid" id="theoryList">
 
-<!-- 1. Engineering Mathematics III -->
 
-<div class="card">
+          <!-- ENGINEERING MATHEMATICS III -->
 
-<div class="card-icon">📐</div>
+          <a href="theory/engineering-mathematics-3.html"
+             class="course-card">
 
-<h3>Engineering Mathematics – III</h3>
+            <div class="course-icon">📐</div>
 
-<p>
-Notes, syllabus, important questions and study material.
-</p>
+            <div>
 
-<a href="theory/engineering-mathematics-3.html" class="btn">
-Open Subject
-</a>
+              <h3>Engineering Mathematics – III</h3>
 
-</div>
+              <p>Notes, syllabus, important questions and study material.</p>
 
+            </div>
 
-<!-- 2. Data Structures -->
+            <span class="course-arrow">→</span>
 
-<div class="card">
+          </a>
 
-<div class="card-icon">🌳</div>
 
-<h3>Data Structures</h3>
+          <!-- DATA STRUCTURES -->
 
-<p>
-Data structures, algorithms, notes and study material.
-</p>
+          <a href="theory/data-structures.html"
+             class="course-card">
 
-<a href="theory/data-structures.html" class="btn">
-Open Subject
-</a>
+            <div class="course-icon">🌳</div>
 
-</div>
+            <div>
 
+              <h3>Data Structures</h3>
 
-<!-- 3. Discrete Mathematics -->
+              <p>Data structures, algorithms, notes and study material.</p>
 
-<div class="card">
+            </div>
 
-<div class="card-icon">🔢</div>
+            <span class="course-arrow">→</span>
 
-<h3>Discrete Mathematics</h3>
+          </a>
 
-<p>
-Discrete mathematics notes and important questions.
-</p>
 
-<a href="theory/discrete-mathematics.html" class="btn">
-Open Subject
-</a>
+          <!-- DISCRETE MATHEMATICS -->
 
-</div>
+          <a href="theory/discrete-mathematics.html"
+             class="course-card">
 
+            <div class="course-icon">🔢</div>
 
-<!-- 4. Object Oriented Programming -->
+            <div>
 
-<div class="card">
+              <h3>Discrete Mathematics</h3>
 
-<div class="card-icon">💻</div>
+              <p>Discrete mathematics notes and important questions.</p>
 
-<h3>Object-Oriented Programming</h3>
+            </div>
 
-<p>
-OOP concepts, programs and study material.
-</p>
+            <span class="course-arrow">→</span>
 
-<a href="theory/object-oriented-programming.html" class="btn">
-Open Subject
-</a>
+          </a>
 
-</div>
 
+          <!-- OOP -->
 
-<!-- 5. Open Elective I -->
+          <a href="theory/object-oriented-programming.html"
+             class="course-card">
 
-<div class="card">
+            <div class="course-icon">💻</div>
 
-<div class="card-icon">📚</div>
+            <div>
 
-<h3>Open Elective – I</h3>
+              <h3>Object-Oriented Programming</h3>
 
-<p>
-Study material and resources for Open Elective.
-</p>
+              <p>OOP concepts, programs and study material.</p>
 
-<a href="theory/open-elective-1.html" class="btn">
-Open Subject
-</a>
+            </div>
 
-</div>
+            <span class="course-arrow">→</span>
 
+          </a>
 
-<!-- 6. Multi Disciplinary Minor -->
 
-<div class="card">
+          <!-- OPEN ELECTIVE -->
 
-<div class="card-icon">🎓</div>
+          <a href="theory/open-elective-1.html"
+             class="course-card">
 
-<h3>Multi-Disciplinary Minor</h3>
+            <div class="course-icon">📚</div>
 
-<p>
-Study material and resources for the minor subject.
-</p>
+            <div>
 
-<a href="theory/multi-disciplinary-minor.html" class="btn">
-Open Subject
-</a>
+              <h3>Open Elective – I</h3>
 
-</div>
+              <p>Study material and resources for Open Elective.</p>
 
+            </div>
 
-<!-- 7. Digital Electronics -->
+            <span class="course-arrow">→</span>
 
-<div class="card">
+          </a>
 
-<div class="card-icon">⚡</div>
 
-<h3>Digital Electronics</h3>
+          <!-- MULTI DISCIPLINARY MINOR -->
 
-<p>
-Digital logic, circuits and electronics study material.
-</p>
+          <a href="theory/multi-disciplinary-minor.html"
+             class="course-card">
 
-<a href="theory/digital-electronics.html" class="btn">
-Open Subject
-</a>
+            <div class="course-icon">🎓</div>
 
-</div>
+            <div>
 
+              <h3>Multi-Disciplinary Minor</h3>
 
-<!-- 8. Life of Chhatrapati Shivaji Maharaj -->
+              <p>Study material and resources for the minor subject.</p>
 
-<div class="card">
+            </div>
 
-<div class="card-icon">🏰</div>
+            <span class="course-arrow">→</span>
 
-<h3>Life of Chhatrapati Shivaji Maharaj</h3>
+          </a>
 
-<p>
-Notes and study material.
-</p>
 
-<a href="theory/life-of-chhatrapati-shivaji-maharaj.html" class="btn">
-Open Subject
-</a>
+          <!-- DIGITAL ELECTRONICS -->
 
-</div>
+          <a href="theory/digital-electronics.html"
+             class="course-card">
 
+            <div class="course-icon">⚡</div>
 
-<!-- 9. Universal Human Values II -->
+            <div>
 
-<div class="card">
+              <h3>Digital Electronics</h3>
 
-<div class="card-icon">🧠</div>
+              <p>Digital logic, circuits and electronics study material.</p>
 
-<h3>Universal Human Values – II</h3>
+            </div>
 
-<p>
-Notes, important questions and study material.
-</p>
+            <span class="course-arrow">→</span>
 
-<a href="theory/universal-human-values-2.html" class="btn">
-Open Subject
-</a>
+          </a>
 
-</div>
 
+          <!-- LIFE OF CHHATRAPATI SHIVAJI MAHARAJ -->
 
-</div>
+          <a href="theory/life-of-chhatrapati-shivaji-maharaj.html"
+             class="course-card">
 
+            <div class="course-icon">🏰</div>
 
-<!-- ==================== -->
-<!-- PRACTICAL SUBJECTS -->
-<!-- ==================== -->
+            <div>
 
-<h2 class="section-title practical-heading">
-🧪 Semester 3 Practical Subjects
-</h2>
+              <h3>Life of Chhatrapati Shivaji Maharaj</h3>
 
+              <p>Notes and study material.</p>
 
-<div class="card-grid">
+            </div>
 
+            <span class="course-arrow">→</span>
 
-<!-- 1. Data Structures Laboratory -->
+          </a>
 
-<div class="card">
 
-<div class="card-icon">🌳</div>
+          <!-- UNIVERSAL HUMAN VALUES II -->
 
-<h3>Data Structures Laboratory</h3>
+          <a href="theory/universal-human-values-2.html"
+             class="course-card">
 
-<p>
-Practical programs, experiments and PDFs.
-</p>
+            <div class="course-icon">🧠</div>
 
-<a href="Practicals/data-structures-lab/index.html" class="btn">
-Open Laboratory
-</a>
+            <div>
 
-</div>
+              <h3>Universal Human Values – II</h3>
 
+              <p>Notes, important questions and study material.</p>
 
-<!-- 2. OOP Java Laboratory -->
+            </div>
 
-<div class="card">
+            <span class="course-arrow">→</span>
 
-<div class="card-icon">☕</div>
+          </a>
 
-<h3>
-Object-Oriented Programming in Java Laboratory
-</h3>
 
-<p>
-Java practical programs, experiments and PDFs.
-</p>
+        </div>
 
-<a href="Practicals/oop-java-lab/index.html" class="btn">
-Open Laboratory
-</a>
+      </div>
 
-</div>
+    </section>
 
 
-<!-- 3. Digital Electronics Laboratory -->
+    <!-- PRACTICALS -->
 
-<div class="card">
+    <section class="practical-section">
 
-<div class="card
+      <div class="container">
+
+        <div class="course-title">
+
+          <span>LABORATORY</span>
+
+          <h2>🧪 Practical Subjects</h2>
+
+          <p>Semester 3 laboratory courses</p>
+
+        </div>
+
+
+        <div class="course-grid">
+
+
+          <!-- DATA STRUCTURES LAB -->
+
+          <a href="Practicals/data-structures-lab/index.html"
+             class="course-card practical-card">
+
+            <div class="course-icon">🌳</div>
+
+            <div>
+
+              <h3>Data Structures Laboratory</h3>
+
+              <p>Practical programs, experiments and PDFs.</p>
+
+            </div>
+
+            <span class="course-arrow">→</span>
+
+          </a>
+
+
+          <!-- OOP JAVA LAB -->
+
+          <a href="Practicals/oop-java-lab/index.html"
+             class="course-card practical-card">
+
+            <div class="course-icon">☕</div>
+
+            <div>
+
+              <h3>Object-Oriented Programming in Java Laboratory</h3>
+
+              <p>Java practical programs, experiments and PDFs.</p>
+
+            </div>
+
+            <span class="course-arrow">→</span>
+
+          </a>
+
+
+          <!-- DIGITAL ELECTRONICS LAB -->
+
+          <a href="Practicals/digital-electronics-lab/index.html"
+             class="course-card practical-card">
+
+            <div class="course-icon">⚡</div>
+
+            <div>
+
+              <h3>Digital Electronics Laboratory</h3>
+
+              <p>Digital electronics practical programs and experiments.</p>
+
+            </div>
+
+            <span class="course-arrow">→</span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- OTHER / ADDITIONAL SUBJECTS -->
+<!-- 
+    <section class="other-section">
+
+      <div class="container">
+
+        <div class="course-title">
+
+          <span>ADDITIONAL</span>
+
+          <h2>📖 Other Subjects</h2>
+
+          <p>Additional Semester 3 learning resources</p>
+
+        </div>
+
+      </div>
+
+    </section> -->
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+
+        <strong>📚 StudyMaterial</strong>
+
+        <p>A helping hand for students 🧡</p>
+
+      </div>
+
+      <div>
+
+        <p>B.Tech Computer Engineering</p>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 StudyMaterial
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>
+```
